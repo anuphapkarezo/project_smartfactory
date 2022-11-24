@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCTT Project --> Product standard lead time</title>
+    {% load static %}
+    <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
+</head>
+
+<body>
+    <div class="main_class">
+        <!-- การ link ในส่วนของ Bootstrap => Js/css -->
+        <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
+
+        <!-- --------------------------------------------------------------------------------------------- -->
+        <link rel="stylesheet" href="{% static 'css/PCTT_project/Page_report_product_std_leadtime.css' %}">
+        <div class="box_1">
+            <span>PCAP</span>
+            <label class="lbl_title" for="">PCTT project ---> Product standard lead time</label>
+            <div>
+                <label class="lbl_box_1" for="">From Product : </label>
+                <select class="select_product" name="" id="from_product">
+                    <option value="Test">Test</option>
+                </select>
+
+                <label class="lbl_box_1" for="">To Product : </label>
+                <select class="select_product" name="" id="to_product">
+                    <option value="Test">Test</option>
+                </select>
+                <input class="btn btn-sm btn_search" type="button" value="Search">
+                <input class="btn btn-sm btn_clear" type="button" value="Clear">
+                <input class="btn btn-sm btn-success btn_export" type="button" value="Export Excel">
+            </div>
+        </div>
+        <div class="box_table">
+            <table id="table_data1" class="table table-striped table-hover table-bordered">
+                <thead id="thead_data1">
+                    <tr>
+                        <th id="th_head">PRODUCT</th>
+                        <th id="th_head">CATEGORY</th>
+                        <th id="th_head">FACTORY</th>
+                        <th id="th_head">SEQ</th>
+                        <th id="th_head">UNIT</th>
+                        <th id="th_head">PROCESS</th>
+                        <th id="th_head">ITEM_TYPE</th>
+                        <th id="th_head">DAY</th>
+                        <th id="th_head">WC</th>
+                        <th id="th_head">ROLL_LOT</th>
+                        <th id="th_head">SHT_LOT</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_data1">
+                    <tr>
+                        <th>PRODUCT</th>
+                        <th>CATEGORY</th>
+                        <th>FACTORY</th>
+                        <th>SEQ</th>
+                        <th>UNIT</th>
+                        <th>PROCESS</th>
+                        <th>ITEM_TYPE</th>
+                        <th>DAY</th>
+                        <th>WC</th>
+                        <th>ROLL_LOT</th>
+                        <th>SHT_LOT</th>
+                    </tr>
+                    <tr>
+                        <th>PRODUCT</th>
+                        <th>CATEGORY</th>
+                        <th>FACTORY</th>
+                        <th>SEQ</th>
+                        <th>UNIT</th>
+                        <th>PROCESS</th>
+                        <th>ITEM_TYPE</th>
+                        <th>DAY</th>
+                        <th>WC</th>
+                        <th>ROLL_LOT</th>
+                        <th>SHT_LOT</th>
+                    </tr>
+                    <tr>
+                        <th>PRODUCT</th>
+                        <th>CATEGORY</th>
+                        <th>FACTORY</th>
+                        <th>SEQ</th>
+                        <th>UNIT</th>
+                        <th>PROCESS</th>
+                        <th>ITEM_TYPE</th>
+                        <th>DAY</th>
+                        <th>WC</th>
+                        <th>ROLL_LOT</th>
+                        <th>SHT_LOT</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCTT Project --> Main menu</title>
+    {% load static %}
+    <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
+</head>
+
+<body>
+    <div class="main_class">
+        <!-- การ link ในส่วนของ Bootstrap => Js/css -->
+        <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
+
+        <!-- --------------------------------------------------------------------------------------------- -->
+        <link rel="stylesheet" href="{% static 'css/PCTT_project/Page_main_menu.css' %}">
+        <div class="box_1">
+            <span>PCAP</span>
+            <label class="lbl_title" for="">PCTT Project</label>
+        </div>
+        <div class="box_menu">
+            <div class="box_menu lbl_menu">PCTT project ---> Master</div>
+            <div class="box_menu master_icon">
+                <a href="/page_master_machine_pcap"><img class="btn" id="machine_pcap" style="width:150px;height: auto;" src="/static/img/PCTT_project/Master_PCAP.jpg"></a>
+                <a href="/Page_master_machine_FPC"><img class="btn" id="machine_fpc" style="width:150px;height: auto; margin-left: 35px;" src="/static/img/PCTT_project/Master_FPC.jpg"></a>
+                <a href="/Page_master_clean_scan"><img class="btn" id="clean_scan_pos" style="width:150px;height: auto; margin-left: 35px;" src="/static/img/PCTT_project/clear_scan_pos_mos.jpg"></a>
+                <a href="/Page_master_clean_query_lot"><img class="btn" id="clear_query_lot" style="width:150px;height: auto; margin-left: 35px;" src="/static/img/PCTT_project/clear_query_lot.jpg"></a>
+            </div>
+        </div>
+        <div class="box_menu">
+            <div class="box_menu lbl_menu">PCTT project ---> Report</div>
+            <div class="box_menu report_icon">
+                <a href="/Page_report_product_transfer_to_WH"><img class="btn" id="product_transfer_wh" style="width:150px;height: auto;" src="/static/img/PCTT_project/product_transfer_WH.jpg"></a>
+                <a href="/Page_report_product_std_leadtime"><img class="btn" id="product_std_leadtime" style="width:150px;height: auto; margin-left: 35px;" src="/static/img/PCTT_project/product_std_leadtime.jpg"></a>
+                <a href="/Page_report_item_inventory_data"><img class="btn" id="item_inventory_data" style="width:150px;height: auto; margin-left: 35px;" src="/static/img/PCTT_project/item_inventory.jpg"></a>
+            </div>
+        </div>
+        <div class="box_menu">
+            <div class="box_menu lbl_menu">PCTT project(2) ---> FPC System</div>
+            <div class="box_menu fpc_icon">
+                <a href="/Page_FPC_system_cancel_lot"><img class="btn" id="cancel_lot" style="width:150px;height: auto;" src="/static/img/PCTT_project/cencel_lot.jpg"></a>
+                <a href="/Page_FPC_system_check_scan_MAT"><img class="btn" id="check_scan_mat" style="width:150px;height: auto; margin-left: 35px;" src="/static/img/PCTT_project/check_scan_mat.jpg"></a>
+                <a href="/Page_FPC_system_test_formulas"><img class="btn" id="test_formulas" style="width:150px;height: auto; margin-left: 35px;" src="/static/img/PCTT_project/test_formulas.jpg"></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

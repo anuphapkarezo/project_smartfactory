@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Management</title>
+    {% load static %}
+    <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
+</head>
+
+<body>
+    <!-- การ link ในส่วนของ Bootstrap => Js/css -->
+    <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
+
+    <!-- --------------------------------------------------------------------------------------------- -->
+    <script type="text/javascript" src="{% static 'js/proj7_scrap_control/proj7_page2_database_management.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/proj7_scrap_control/proj7_page2_database_management.css' %}">
+    <div class="main_class">
+        <div class="lbl_title">Database Management > Smart scrap management</div>
+        <div class="table_add_database">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="700px">Attached File / Submit Upload</th>
+                        <th width="400px">Menu Descriptions</th>
+                        <th width="600px">File name</th>
+                    </tr>
+                </thead>
+                <tbody id="tb_waste_item_master_list">
+                    <!-- Upload waste item master list -->
+                    <tr>
+                        <td>
+                            <form action="proj7_page2_upload_file_waste_item_master_list" method="post" enctype="multipart/form-data">
+                                <input class="" type="file" name="excel_data" id="upload_file_waste_item_master_list" accept=".xls,.xlsx">
+                                <button class="btn btn-sm btn-primary" id="btn_upload_waste_item_master_list">Upload waste item master list</button>
+                            </form>
+                        </td>
+                        <td>
+                            <label for="">Upload Waste item master list</label>
+                        </td>
+                        <td>
+                            <label for="">1.waste item master list.xlsx</label>
+                        </td>
+                    </tr>
+
+                    <!-- Upload waste group master list -->
+                    <tr>
+                        <td>
+                            <form action="proj7_page2_upload_file_waste_group_master_list" method="post" enctype="multipart/form-data">
+                                <input class="" type="file" name="excel_data" id="upload_file_waste_group_master_list" accept=".xls,.xlsx">
+                                <button class="btn btn-sm btn-primary" id="btn_upload_waste_group_master_list">Upload waste group master list</button>
+                            </form>
+                        </td>
+                        <td>
+                            <label for="">Upload Waste group master list</label>
+                        </td>
+                        <td>
+                            <label for="">2.waste group master list.xlsx</label>
+
+                        </td>
+
+                    </tr>
+
+                    <!-- Upload waste item prices list -->
+                    <tr>
+                        <td>
+                            <form action="proj7_page2_upload_file_waste_item_price_list" method="post" enctype="multipart/form-data">
+                                <input class="" type="file" name="excel_data" id="upload_file_waste_item_price_list" accept=".xls,.xlsx">
+                                <button class="btn btn-sm btn-primary" id="btn_upload_waste_item_price_list">Upload waste item prices list</button>
+                            </form>
+                        </td>
+                        <td>
+                            <label for="">Upload waste item prices list</label>
+                        </td>
+                        <td>
+                            <label for="">3.waste item price list.xlsx</label>
+
+                        </td>
+
+                    </tr>
+
+                    <!-- Upload waste item map factory -->
+                    <tr>
+                        <td>
+                            <form action="proj7_page2_upload_file_waste_item_map_factory" method="post" enctype="multipart/form-data">
+                                <input class="" type="file" name="excel_data" id="upload_file_waste_item_map_factory" accept=".xls,.xlsx">
+                                <button class="btn btn-sm btn-primary" id="btn_upload_waste_item_map_factory">Upload waste item map factory</button>
+                            </form>
+                        </td>
+                        <td>
+                            <label for="">Upload waste item map factory</label>
+                        </td>
+                        <td>
+                            <label for="">4.waste item map factory.xlsx</label>
+                        </td>
+
+                    </tr>
+
+                    <!-- Upload company master list -->
+                    <tr>
+                        <td>
+                            <form action="proj7_page2_upload_file_company_master_list" method="post" enctype="multipart/form-data">
+                                <input class="" type="file" name="excel_data" id="upload_file_company_master_list" accept=".xls,.xlsx">
+                                <button class="btn btn-sm btn-success" id="btn_upload_company_master_list">Upload company master list</button>
+                            </form>
+                        </td>
+                        <td>
+                            <label for="">Upload company master list</label>
+                        </td>
+                        <td>
+                            <label for="">5.company master list.xlsx</label>
+                        </td>
+
+                    </tr>
+
+                    <!-- Upload company contact name list -->
+                    <tr>
+                        <td>
+                            <form action="proj7_page2_upload_file_company_contact_name_list" method="post" enctype="multipart/form-data">
+                                <input class="" type="file" name="excel_data" id="upload_file_company_contact_name_list" accept=".xls,.xlsx">
+                                <button class="btn btn-sm btn-success" id="btn_upload_company_contact_name_list">Upload company contact name list</button>
+                            </form>
+                        </td>
+                        <td>
+                            <label for="">Upload company contact name list</label>
+                        </td>
+                        <td>
+                            <label for="">6.company contact name list.xlsx</label>
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+        <label id="lbl_path" for="">Path file : C:\django_Project\project_smartfactory\static\upload\Database master\(File name)</label>
+    </div>
+</body>
+
+</html>

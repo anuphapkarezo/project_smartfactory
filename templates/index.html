@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App 1</title>
+    {% load static %}
+    <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
+</head>
+
+<body>
+    <!-- <link rel="stylesheet" href="{% static 'css/proj7_scrap_control/proj7_page_1_my_content.css' %}"> -->
+    <!-- การ link ในส่วนของ Js/css -->
+    <link rel="stylesheet" href="{% static 'css/proj7_scrap_control/proj7_page_1_my_content.css' %}">
+    <script src="{% static 'js/proj7_scrap_control/proj7_page1_my_content.js' %}"></script>
+
+    <!-- การ link ในส่วนของ Bootstrap => Js/css -->
+    <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
+
+    <h1>My application for Test</h1>
+    <div id="my_content1" class="bg_color">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum dolorem omnis a eius, rerum in pariatur porro earum obcaecati harum consequuntur. Debitis hic nisi iusto animi esse ipsam harum pariatur!
+    </div>
+    <div id="my_content2" class="bg_color">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum dolorem omnis a eius, rerum in pariatur porro earum obcaecati harum consequuntur. Debitis hic nisi iusto animi esse ipsam harum pariatur!
+    </div>
+    <button class="btn btn-primary" id="btn_submit_content" onclick=click_mycontent()>Submit</button>
+    <div>
+        <div id="block_div1">
+            <button id="btn_try" class="btn btn-success">try it yourself ></button>
+        </div>
+        <div id="block_div2">
+            <h6><b>Note: </b>The id name is cast sensitive.s</h6>
+            <label for=""><b>Note: </b>Lorem ipsum dolor sit amet consectetur.</label>
+        </div>
+        <div id="block_div3">
+            <h1>Difference Between Class and ID</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid dolorum facilis corrupti similique beatae asperiores iure totam ipsa quaerat modi!</p>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

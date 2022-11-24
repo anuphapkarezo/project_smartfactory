@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
+</head>
+
+<body>
+    <!-- การ link ในส่วนของ Js/css -->
+    <link rel="stylesheet" href="{% static 'css/proj7_scrap_control/proj7_page_1_my_content.css' %}">
+    <script src="{% static 'js/proj7_scrap_control/proj7_page1_my_content.js' %}"></script>
+
+    <!-- การ link ในส่วนของ Bootstrap => Js/css -->
+    <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
+
+    <!-- --------------------------------------------------------------------------------------------- -->
+    <link rel="stylesheet" href="{% static 'css/Basic_HTML/HTML_0_From_1.css' %}">
+
+    <h1 align="center" style="color: blue;">แบบฟอร์มการลงทะเบียน</h1>
+    <form action="">
+        <div>
+            <label for="">ชื่อจริง :</label>
+            <input id="first_name" type="text" name="fname" placeholder="ป้อนชื่อ">
+        </div>
+        <div>
+            <label for="">นามสกุล :</label>
+            <input id="last_name" type="text" name="lname" placeholder="ป้อนนามสกุล">
+        </div>
+        <div>
+            <label for="">E-mail :</label>
+            <input id="e_mail" type="email">
+        </div>
+        <div>
+            <label for="">ที่อยู่ :</label>
+            <textarea name="" id="address" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <label for="">อายุ :</label>
+            <input type="number" name="age" id="age" min="0" max="50" value="28">
+        </div>
+        <div>
+            <label for="">วันเกิด :</label>
+            <input type="date" name="birthdate" id="birth_day">
+        </div>
+        <div>
+            <label for="">โทรศัพท์ :</label>
+            <input type="tel" id="phone_no">
+        </div>
+        <div>
+            <label for="">สีที่ชอบ :</label>
+            <input type="color" id="color_like">
+        </div>
+        <div>
+            <label for="">ช่วงตัวเลข :</label>
+            <input type="range" value="0">
+            <input type="range" min="0" max="100" id="" onchange="updateTextInput(this.value)">
+            <input type="text" id="textinput">
+        </div>
+        <div>
+            <label for="">การศึกษา :</label>
+            <select name="" id="cmb_education">
+                <option value="มัธยมต้น">มัธยมต้น</option>
+                <option value="มัธยมปลาย">มัธยมปลาย</option>
+                <option value="ปริญญาตรี" selected>ปริญญาตรี</option>
+                <option value="ปริญญาโท">ปริญญาโท</option>
+                <option value="ปริญญาเอก">ปริญญาเอก</option>
+            </select>
+        </div>
+        <div>
+            <label for="">เพศ :</label>
+            <input type="radio" name="gender" value="เพศชาย" checked> เพศชาย
+            <input type="radio" name="gender" value="เพศหญิง"> เพศหญิง
+            <!-- Radio จะ group ตามชื่อที่ตั้ง เช่น gender ด้านบน -->
+        </div>
+        <div>
+            <label for="">สิ่งที่ชอบ :</label>
+            <input name="is_like" type="checkbox" value="เขียนเว็บ" checked> เขียนเว็บ
+            <input name="is_like" type="checkbox" value="สร้างเกม"> สร้างเกม
+            <input name="is_like" type="checkbox" value="เล่นเกม"> เล่นเกม
+        </div>
+        <div>
+            <label for="">แนบเอกสาร :</label>
+            <input type="file" id="file_x">
+        </div>
+        <div>
+            <label for="">เว็บไซต์ :</label>
+            <input type="url" name="" id="web_site">
+        </div>
+        <!-- <input id="btn_submit" type="submit" value="Submit" class="btn-primary" onclick="submit_data()"> -->
+        <!-- <input id="btn_reset" type="reset" value="Clear data" class="btn-warning"> -->
+        <input id="btn_reset" type="reset" value="Clear data" class="btn-warning">
+    </form>
+    <input id="btn_submit" type="submit" value="Submit" class="btn-primary" onclick="submit_data()">
+    <div>
+        <table id="table_1">
+            <thead>
+                <tr>
+                    <th>หัวข้อ</th>
+                    <th>ข้อมูล</th>
+                </tr>
+            </thead>
+            <tbody id="tbody_data1">
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function updateTextInput(val) {
+            document.getElementById('textinput').value = val;
+        }
+
+        function submit_data() {
+            let f_name;
+            let l_name;
+            let e_mail;
+            let address;
+            let age;
+            let birth_day;
+            let phone_no;
+            let color_like;
+            let range_no;
+            let education;
+            let sex;
+            let is_like;
+            let file_x;
+            let web_site;
+            f_name = document.getElementById('first_name').value
+            l_name = document.getElementById('last_name').value
+            e_mail = document.getElementById('e_mail').value
+            address = document.getElementById('address').value
+            age = document.getElementById('age').value
+            birth_day = document.getElementById('birth_day').value
+            phone_no = document.getElementById('phone_no').value
+            color_like = document.getElementById('color_like').value
+            range_no = document.getElementById('textinput').value
+            education = document.getElementById('cmb_education').value
+
+            var radios = document.getElementsByName('gender');
+            // console.log(radios.length);
+            // Remark loop for : ให้ i = 0 และถ้า i ยังมีค่าน้อยกว่า length ที่อยู่ใน group ของ radio ให้ทำใน if
+            // และให้ i++ คือ ให้ i เพิ่มขึ้นทีละ 1 เพื่อตรวจสอบค่าถัดไป
+            for (var i = 0; i < radios.length; i++)
+                if (radios[i].checked == true) {
+                    sex = (radios[i].value)
+                }
+
+            var choices = [];
+            var checkboxes = document.getElementsByName("is_like");
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    choices.push(checkboxes[i].value)
+                }
+            }
+            file_x = document.getElementById('file_x').value
+            web_site = document.getElementById('web_site').value
+
+            let row1;
+            let row2;
+            let row3;
+            let row4;
+            let row5;
+            let row6;
+            let row7;
+            let row8;
+            let row9;
+            let row10;
+            let row11;
+            let row12;
+            let row13;
+            let row14;
+            let total_row;
+            row1 = '<tr><td>ชื่อ</td><td>' + f_name + '</td></tr>'
+            row2 = '<tr><td>นามสกุล</td><td>' + l_name + '</td></tr>'
+            row3 = '<tr><td>อีเมล์</td><td>' + e_mail + '</td></tr>'
+            row4 = '<tr><td>ที่อยู่</td><td>' + address + '</td></tr>'
+            row5 = '<tr><td>อายุ</td><td>' + age + '</td></tr>'
+            row6 = '<tr><td>วันเกิด</td><td>' + birth_day + '</td></tr>'
+            row7 = '<tr><td>โทรศัพท์</td><td>' + phone_no + '</td></tr>'
+            row8 = '<tr><td>สีที่ชอบ</td><td>' + color_like + '</td></tr>'
+            row9 = '<tr><td>ช่วงตัวเลข</td><td>' + range_no + '</td></tr>'
+            row10 = '<tr><td>การศึกษา</td><td>' + education + '</td></tr>'
+            row11 = '<tr><td>เพศ</td><td>' + sex + '</td></tr>'
+            row12 = '<tr><td>สิ่งที่ชอบ</td><td>' + choices + '</td></tr>'
+            row13 = '<tr><td>เอกสาร</td><td>' + file_x + '</td></tr>'
+            row14 = '<tr><td>เว็บไซต์</td><td>' + web_site + '</td></tr>'
+            total_row = row1 + row2 + row3 + row4 + row5 + row6 + row7 + row8 + row9 + row10 + row11 + row12 + row13 + row14
+            document.getElementById('tbody_data1').innerHTML = total_row;
+        }
+    </script>
+</body>
+
+</html>

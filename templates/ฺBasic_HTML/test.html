@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/Tests/Post" method="post">
+        <fieldset>
+            <div>
+                <label for="">สิ่งที่ชอบ :</label>
+                <input name="is_like" type="checkbox" value="เขียนเว็บ" checked> เขียนเว็บ
+                <input name="is_like" type="checkbox" value="สร้างเกม"> สร้างเกม
+                <input name="is_like" type="checkbox" value="เล่นเกม"> เล่นเกม
+            </div>
+        </fieldset>
+
+    </form>
+    <input id="btn_submit" type="submit" value="Submit" class="btn-primary" onclick="myfunction()">
+    <input type="text" id="get_like">
+    <script type="text/javascript">
+        function myfunction() {
+            var choices = [];
+            var checkboxes = document.getElementsByName("is_like");
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    choices.push(checkboxes[i].value)
+                }
+            }
+            document.getElementById("get_like").value = choices
+        }
+        // var checkboxes = document.getElementsByName("is_like");
+        // function ValidatePetSelection() {
+        //     var checkboxes = document.getElementsByName("is_like");
+        //     var numberOfCheckedItems = 0;
+        //     var list_like;
+        //     for (var i = 0; i < checkboxes.length; i++) {
+        //         if (checkboxes[i].checked == true)
+        //             list_like = list_like + checkboxes[i].value
+
+        //     }
+        //     if (numberOfCheckedItems > 2) {
+        //         alert("You can't select more than two favorite pets!");
+        //         return false;
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

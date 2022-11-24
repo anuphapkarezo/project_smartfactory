@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th,
+        td {
+            border: 1px solid black;
+        }
+        
+        .table_waste_item_master_list {
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+        
+        .box_menu {
+            display: flex;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+        
+        .box_1 {
+            margin-left: 10px;
+        }
+    </style>
+    {% load static %}
+    <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
+</head>
+
+<body>
+    <!-- การ link ในส่วนของ Bootstrap => Js/css -->
+    <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
+
+    <!-- --------------------------------------------------------------------------------------------- -->
+    <script type="text/javascript" src="{% static 'js/proj7_scrap_control/proj7_page1_record_weight.js' %}"></script>
+    <!-- <link rel="stylesheet" href="{% static 'css/proj7_scrap_control/proj7_page1_record_weight.css' %}"> -->
+
+
+
+    <div class="box_menu">
+        <div class="box_1"><button id="btn_read_database_product">Read Database</button></div>
+        <div class="box_1"><input type="text" id="item_delete" style="width: 150px;"></div>
+        <div class="box_1"><button id="btn_delete_item">Delete</button></div>
+    </div>
+    <div class="table_waste_item_master_list">
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Item code</th>
+                    <th>Description English</th>
+                    <th>Description Thai</th>
+                    <th>Waste Group code</th>
+                    <th>Waste Unit</th>
+                    <th>Update date</th>
+                    <th>Update by</th>
+                </tr>
+            </thead>
+            <tbody id="tb_waste_item_master_list">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

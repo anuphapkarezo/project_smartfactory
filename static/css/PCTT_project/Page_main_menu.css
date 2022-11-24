@@ -1,0 +1,72 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+    /* width: 1360px; */
+}
+
+.main_class {
+    width: 1278px;
+}
+
+.box_1 {
+    /* border: 1px solid black; */
+    height: 45px;
+    /* padding-top: 5px; */
+    background-color: lightblue;
+    text-align: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+span {
+    color: red;
+    background-color: white;
+    font-weight: bold;
+    /* margin-left: 15px;
+    margin-top: 10px; */
+    font-style: italic;
+    font-size: 30px;
+}
+
+.lbl_title {
+    /* margin-top: 10px; */
+    font-weight: bold;
+    font-style: italic;
+    font-size: 30px;
+}
+
+body {
+    background-color: white;
+}
+
+.lbl_menu {
+    font-size: 20px;
+    font-weight: bold;
+    color: darkred;
+    /* border: 1px solid black; */
+    text-align: center;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 5px;
+    background-color: azure;
+}
+
+.master_icon,
+.report_icon,
+.fpc_icon {
+    height: 150px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.btn:hover {
+    border: 5px solid lightskyblue;
+    border-radius: 5px;
+}

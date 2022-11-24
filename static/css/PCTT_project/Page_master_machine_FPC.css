@@ -1,0 +1,215 @@
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    * {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        box-sizing: border-box;
+        /* width: 1360px; */
+    }
+    
+    .main_class {
+        width: 1278px;
+    }
+    
+    .box_1 {
+        /* border: 1px solid black; */
+        height: 95px;
+        /* padding-top: 5px; */
+        background-color: lightblue;
+    }
+    
+    span {
+        color: red;
+        background-color: white;
+        font-weight: bold;
+        margin-left: 15px;
+        margin-top: 10px;
+        font-style: italic;
+        font-size: 18px;
+    }
+    
+    #lbl_title {
+        margin-top: 10px;
+        font-weight: bold;
+        font-style: italic;
+        font-size: 18px;
+    }
+    
+    #lbl_title1 {
+        margin-top: 5px;
+        margin-left: 20px;
+        font-size: 18px;
+    }
+    
+    .btn {
+        width: 170px;
+    }
+    
+    #btn_search_grp_proc {
+        margin-left: 15px;
+    }
+    
+    .grid_container {
+        display: grid;
+        grid-template-rows: 400px;
+        grid-template-columns: auto auto;
+    }
+    /* .item {
+        border: 1px solid black;
+    } */
+    
+    .lbl_search_grp_proc,
+    .lbl_search_proc {
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+    
+    .box_table_search_grp_proc,
+    .box_table_search_proc {
+        border: 1px solid black;
+        width: auto;
+        height: 330px;
+        margin-top: 10px;
+        margin-right: 10px;
+        background-color: lightyellow
+    }
+    /* .box_table_search_proc {
+        border: 1px solid black;
+        width: auto;
+        height: 330px;
+        margin-top: 10px;
+        margin-right: 10px;
+        background-color: lightyellow;
+    } */
+    
+    #lbl_group,
+    #lbl_process {
+        font-family: inherit;
+        padding-left: 15px;
+        padding-top: 10px;
+    }
+    
+    #txt_group,
+    #txt_process {
+        padding-left: 5px;
+        color: blue;
+    }
+    
+    #btn_search1,
+    #btn_search2 {
+        width: 70px;
+        height: 30px;
+        font-size: 12px;
+    }
+    
+    .box_table1,
+    .box_table2 {
+        width: auto;
+        height: 270px;
+        border: 1px solid black;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 5px;
+        overflow-y: auto;
+    }
+    /* #table_data1,
+    #table_data2 {
+        
+    } */
+    
+    #thead_data1,
+    #thead_data2 {
+        background-color: lightgray;
+        font-size: 12px;
+        font-weight: bold;
+        color: black;
+        border: 1px solid black;
+        text-align: center;
+    }
+    
+    #th_head1,
+    #th_head2 {
+        border: 1px solid black;
+    }
+    
+    #tbody_data1,
+    #tbody_data2 {
+        height: auto;
+        font-size: 10px;
+    }
+    
+    .lbl_add_mc_fpc {
+        padding-left: 10px;
+    }
+    
+    .box_add_mc_fpc {
+        width: 700px;
+        height: 200px;
+        border: 1px solid black;
+        margin-top: 8px;
+        margin-bottom: 10px;
+        background-color: lightyellow
+    }
+    
+    #rad_new {
+        margin-left: 120px;
+        margin-top: 20px;
+    }
+    
+    #rad_change {
+        margin-left: 10px;
+    }
+    
+    #lbl_1 {
+        margin-left: 54px;
+        margin-top: 15px;
+    }
+    
+    #txt_machine {
+        width: 185px;
+        margin-left: 5px;
+        padding-left: 5px;
+        color: blue;
+    }
+    
+    #txt_machine1 {
+        width: 250px;
+        margin-left: 20px;
+        padding-left: 5px;
+        color: blue;
+    }
+    
+    #lbl_2 {
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    
+    #txt_grp_proc {
+        width: 185px;
+        margin-left: 5px;
+        padding-left: 5px;
+        color: blue;
+    }
+    
+    #lbl_3 {
+        margin-left: 20px;
+    }
+    
+    #txt_proc {
+        width: 185px;
+        margin-left: 5px;
+        padding-left: 5px;
+        color: blue;
+    }
+    
+    #btn_save {
+        margin-left: 125px;
+        margin-top: 20px;
+        width: 80px;
+    }
+    
+    #btn_cancel {
+        margin-left: 5px;
+        width: 80px;
+    }

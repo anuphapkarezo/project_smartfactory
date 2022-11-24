@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCTT Project --> Machine FPC</title>
+    {% load static %}
+    <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
+</head>
+
+<body>
+    <div class="main_class">
+        <!-- การ link ในส่วนของ Bootstrap => Js/css -->
+        <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
+
+        <!-- --------------------------------------------------------------------------------------------- -->
+        <link rel="stylesheet" href="{% static 'css/PCTT_project/Page_master_machine_FPC.css' %}">
+        <div class="box_1">
+            <span>PCAP</span>
+            <label id="lbl_title" for="">PCTT project ---> Machine FPC</label>
+            <div>
+                <!-- <button id="btn_search_grp_proc" class="btn btn-primary" type="submit">Search group process</button>
+                <button id="btn_search_proc" class="btn btn-primary" type="submit">Search process</button>
+                <button id="btn_add_mc_fpc" class="btn btn-primary" type="submit">Add machine FPC</button> -->
+                <label id="lbl_title1">Search group process</label>
+                <label id="lbl_title1">II</label>
+                <label id="lbl_title1">Search process</label>
+                <label id="lbl_title1">II</label>
+                <label id="lbl_title1">Add machine in FPC system</label>
+            </div>
+        </div>
+        <div class="grid_container">
+            <div class="item lbl_search_grp_proc">Search group process
+                <div class="box_table_search_grp_proc">
+                    <label id="lbl_group" for="">Group :</label>
+                    <input id="txt_group" type="text">
+                    <input id="btn_search1" type="button" value="Search">
+                    <div class="overflow-scroll box_table1">
+                        <table id="table_data1" class="table table-striped table-hover table-bordered">
+                            <thead id="thead_data1">
+                                <tr>
+                                    <th id="th_head1" width="50px">Group ID</th>
+                                    <th id="th_head1" width="120px">Group name</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody_data1">
+                                <tr>
+                                    <th>1</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                                <tr>
+                                    <th>3</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                                <!-- <tr>
+                                    <th>4</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                                <tr>
+                                    <th>5</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                                <tr>
+                                    <th>6</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                                <tr>
+                                    <th>7</th>
+                                    <th>xxxxx</th>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="item lbl_search_proc">Search process
+                <div class="box_table_search_proc">
+                    <label id="lbl_process" for="">Process :</label>
+                    <input id="txt_process" type="text">
+                    <input id="btn_search2" type="button" value="Search">
+                    <div class="box_table2">
+                        <table id="table_data2" class="table table-striped table-hover table-bordered">
+                            <thead id="thead_data2">
+                                <tr>
+                                    <th id="th_head2" width="30px">Process ID</th>
+                                    <th id="th_head2" width="80px">Process Desc</th>
+                                    <th id="th_head2" width="80px">factory</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody_data2">
+                                <tr>
+                                    <th>1</th>
+                                    <th>xxxxx</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <th>xxxxx</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                                <tr>
+                                    <th>3</th>
+                                    <th>xxxxx</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                                <tr>
+                                    <th>4</th>
+                                    <th>xxxxx</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                                <tr>
+                                    <th>5</th>
+                                    <th>xxxxx</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                                <tr>
+                                    <th>6</th>
+                                    <th>xxxxx</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                                <tr>
+                                    <th>7</th>
+                                    <th>xxxxx</th>
+                                    <th>xxxxx</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item lbl_add_mc_fpc">Add machine in FPC system
+            <div class="box_add_mc_fpc">
+                <input class="rad_type" id="rad_new" type="radio" name="type_add" value="New" checked> New
+                <input class="rad_type" id="rad_change" type="radio" name="type_add" value="Change Plant"> Change Plant
+                <div>
+                    <label id="lbl_1" for="">Machine :</label>
+                    <input id="txt_machine" type="text">
+                    <input id="txt_machine1" type="text">
+                </div>
+                <div>
+                    <label id="lbl_2" for="">Group process :</label>
+                    <input id="txt_grp_proc" type="text">
+                    <label id="lbl_3" for="">Process :</label>
+                    <input id="txt_proc" type="text">
+                </div>
+                <div>
+                    <input id="btn_save" type="button" value="Save">
+                    <input id="btn_cancel" type="button" value="Cancel">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

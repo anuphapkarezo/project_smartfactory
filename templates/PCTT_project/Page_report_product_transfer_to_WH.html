@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCTT Project --> Product Transfer to WH</title>
+    {% load static %}
+    <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
+</head>
+
+<body>
+    <div class="main_class">
+        <!-- การ link ในส่วนของ Bootstrap => Js/css -->
+        <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
+
+        <!-- --------------------------------------------------------------------------------------------- -->
+        <link rel="stylesheet" href="{% static 'css/PCTT_project/Page_report_product_transfer_to_WH.css' %}">
+        <div class="box_1">
+            <span>PCAP</span>
+            <label class="lbl_title" for="">PCTT project ---> Product Transfer to WH</label>
+            <div>
+                <label class="lbl_box_1" for="">From Date : </label>
+                <input class="date_picker" id="from_date" type="date">
+
+                <label class="lbl_box_1" for="">To Date : </label>
+                <input class="date_picker" id="to_date" type="date">
+
+                <label class="lbl_box_1" for="">Factory : </label>
+                <select class="date_picker" name="" id="cmb_factory">
+                    <option value="All">All</option>
+                    <option value="All">A1</option>
+                    <option value="All">N1</option>
+                    <option value="All">P1</option>
+                    <option value="All">K1</option>
+                </select>
+                <input class="btn btn-sm btn_search" type="button" value="Search">
+                <input class="btn btn-sm btn_clear" type="button" value="Clear">
+                <input class="btn btn-sm btn-success btn_export" type="button" value="Export Excel">
+            </div>
+        </div>
+        <div class="box_table">
+            <table id="table_data1" class="table table-striped table-hover table-bordered">
+                <thead id="thead_data1">
+                    <tr>
+                        <th id="th_head" width="200PX">FACTORY_DESC</th>
+                        <th id="th_head">PRD_NAME</th>
+                        <th id="th_head">PROC_LINE</th>
+                        <th id="th_head">REJH_LOTNO</th>
+                        <th id="th_head">REJH_DATE</th>
+                        <th id="th_head">OUTPUT_QTY</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_data1">
+                    <tr>
+                        <th>FACTORY_DESC</th>
+                        <th>PRD_NAME</th>
+                        <th>PROC_LINE</th>
+                        <th>REJH_LOTNO</th>
+                        <th>REJH_DATE</th>
+                        <th>OUTPUT_QTY</th>
+                    </tr>
+                    <tr>
+                        <th>FACTORY_DESC</th>
+                        <th>PRD_NAME</th>
+                        <th>PROC_LINE</th>
+                        <th>REJH_LOTNO</th>
+                        <th>REJH_DATE</th>
+                        <th>OUTPUT_QTY</th>
+                    </tr>
+                    <tr>
+                        <th>FACTORY_DESC</th>
+                        <th>PRD_NAME</th>
+                        <th>PROC_LINE</th>
+                        <th>REJH_LOTNO</th>
+                        <th>REJH_DATE</th>
+                        <th>OUTPUT_QTY</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+    /* width: 1360px; */
+}
+
+.main_class {
+    width: 1278px;
+}
+
+.box_1 {
+    /* border: 1px solid black; */
+    height: 50px;
+    /* padding-top: 5px; */
+    background-color: lightblue;
+}
+
+span {
+    color: red;
+    background-color: white;
+    font-weight: bold;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.lbl_title {
+    margin-top: 10px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.box_2 {
+    text-align: center;
+}
+
+.grid_container {
+    display: grid;
+    grid-template-rows: 200px 50px 200px;
+    grid-template-columns: auto 700px auto;
+}
+
+.txt_formulas {
+    width: 650px;
+    height: 170px;
+    margin-left: 25px;
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size: 18px;
+    color: blue;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.btn {
+    width: 100px;
+}
+
+.btn_test_formulas {
+    text-align: center;
+    margin-top: 15px;
+}

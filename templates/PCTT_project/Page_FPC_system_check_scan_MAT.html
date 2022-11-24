@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCTT Project(2) --> Check scan MAT</title>
+    {% load static %}
+    <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
+</head>
+
+<body>
+    <div class="main_class">
+        <!-- การ link ในส่วนของ Bootstrap => Js/css -->
+        <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
+
+        <!-- --------------------------------------------------------------------------------------------- -->
+        <link rel="stylesheet" href="{% static 'css/PCTT_project/Page_FPC_system_check_scan_MAT.css' %}">
+        <div class="box_1">
+            <span>PCAP</span>
+            <label class="lbl_title" for="">PCTT project(2) ---> Check scan MAT</label>
+            <div>
+                <label class="lbl_box_1" for="">Lot : </label>
+                <input class="key_product" id="lot_1" type="text" placeholder="key lot">
+
+                <label class="lbl_box_1" for="">Process : </label>
+                <select class="cmb_proc" name="">
+                    <option value="Test">Test</option>
+                </select>
+
+                <input class="btn btn-sm btn_search" type="button" value="Search">
+                <input class="btn btn-sm btn_cancel" type="button" value="Cancel">
+            </div>
+        </div>
+        <div class="box_table">
+            <table id="table_data1" class="table table-striped table-hover table-bordered">
+                <thead id="thead_data1">
+                    <tr>
+                        <th id="th_head">LOT</th>
+                        <th id="th_head">ITEM</th>
+                        <th id="th_head">COUNT</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_data1">
+                    <tr>
+                        <th>220391748</th>
+                        <th>13751871</th>
+                        <th>0</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

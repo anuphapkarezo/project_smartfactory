@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCTT Project --> Clean Query Lot</title>
+    {% load static %}
+    <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
+</head>
+
+<body>
+    <div class="main_class">
+        <!-- การ link ในส่วนของ Bootstrap => Js/css -->
+        <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
+
+        <!-- --------------------------------------------------------------------------------------------- -->
+        <link rel="stylesheet" href="{% static 'css/PCTT_project/Page_master_clean_query_lot.css' %}">
+        <div class="box_1">
+            <span>PCAP</span>
+            <label id="lbl_title" for="">PCTT project ---> Clean Query Lot</label>
+            <div>
+                <label id="lbl_lot" for="">Lot : </label>
+                <input id="txt_lot" type="text">
+
+                <label id="lbl_enter" for="">--> enter</label>
+
+                <label id="lbl_proc" for="">Process : </label>
+                <select name="" id="cmb_proc">
+                    <option value="Test">Test</option>
+                </select>
+            </div>
+        </div>
+        <div class="box_table">
+            <table id="table_data1" class="table table-striped table-hover table-bordered">
+                <thead id="thead_data1">
+                    <tr>
+                        <th id="th_head" width="20px"></th>
+                        <th id="th_head" width="120px">Product</th>
+                        <th id="th_head" width="120px">Scan type</th>
+                        <th id="th_head" width="120px">Plan Date</th>
+                        <th id="th_head" width="120px">scan date</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_data1">
+                    <tr>
+                        <th>
+                            <input class="chk_val" name="" type="checkbox" value="">
+                        </th>
+                        <th>Machine</th>
+                        <th>Curr. Machine</th>
+                        <th>Regis. Date</th>
+                        <th>Desc</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input class="chk_val" name="" type="checkbox" value="">
+                        </th>
+                        <th>Machine</th>
+                        <th>Curr. Machine</th>
+                        <th>Regis. Date</th>
+                        <th>Desc</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input class="chk_val" name="" type="checkbox" value="">
+                        </th>
+                        <th>Machine</th>
+                        <th>Curr. Machine</th>
+                        <th>Regis. Date</th>
+                        <th>Desc</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input class="chk_val" name="" type="checkbox" value="">
+                        </th>
+                        <th>Machine</th>
+                        <th>Curr. Machine</th>
+                        <th>Regis. Date</th>
+                        <th>Desc</th>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <input id="btn_save" type="button" value="Save">
+            <input id="btn_cancel" type="button" value="Cancel">
+        </div>
+        <div class="grid_container">
+            <div>หมายเหตุใน Grid
+                <div class="lbl item_1">
+                    <label>- เลือกทั้งหมด = Clear ทุก Type ใน Process นี้</label>
+                </div>
+                <div class="lbl item_2">
+                    <label>- เลือกบางตัว = Clear เฉพาะ Type ใน Process นี้</label>
+                </div>
+            </div>
+            <div>หมายเหตุ Type Status ยังเป็น Finish
+                <div class="lbl item_1">
+                    <label>- เช็คว่า Lot นี้ ปัจจุบัน Process เลยไปหรือยัง</label>
+                </div>
+                <div class="lbl item_2">
+                    <label>ถ้าเลยแล้ว ให้ทำการ Replace WIP</label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
