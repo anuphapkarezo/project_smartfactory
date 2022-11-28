@@ -11,6 +11,7 @@ from .proj7_functions import save_waste_item_price_list , update_waste_item_pric
 from .proj7_functions import save_company_master_list , update_company_master_list
 from .proj7_functions import save_company_contact_name_list , update_company_contact_name_list
 from .proj7_functions import save_waste_item_map_factory , update_waste_item_map_factory
+from .proj7_functions import save_waste_daily_transaction
 
 import json
 from json import dumps
@@ -460,3 +461,197 @@ def proj7_page3_record_weight_waste_scrap_search_item(request):
     ajax_proj7_page3_record_weight_waste_scrap_search_item = dumps(data_loads)
 
     return HttpResponse(ajax_proj7_page3_record_weight_waste_scrap_search_item)
+
+# ajax_proj7_page3_save_waste_daily_transaction
+@csrf_exempt
+def proj7_page3_save_waste_daily_transaction(request):
+    det_weight_1 = int(request.POST['det_weight_1'])
+    det_weight_2 = int(request.POST['det_weight_2'])
+    det_weight_3 = int(request.POST['det_weight_3'])
+    det_weight_4 = int(request.POST['det_weight_4'])
+    det_weight_5 = int(request.POST['det_weight_5'])
+    det_weight_6 = int(request.POST['det_weight_6'])
+    det_weight_7 = int(request.POST['det_weight_7'])
+    det_weight_8 = int(request.POST['det_weight_8'])
+    det_weight_9 = int(request.POST['det_weight_9'])
+    det_weight_10 = int(request.POST['det_weight_10'])
+
+    det_weight_11 = int(request.POST['det_weight_11'])
+    det_weight_12 = int(request.POST['det_weight_12'])
+    det_weight_13 = int(request.POST['det_weight_13'])
+    det_weight_14 = int(request.POST['det_weight_14'])
+    det_weight_15 = int(request.POST['det_weight_15'])
+    det_weight_16 = int(request.POST['det_weight_16'])
+    det_weight_17 = int(request.POST['det_weight_17'])
+    det_weight_18 = int(request.POST['det_weight_18'])
+    det_weight_19 = int(request.POST['det_weight_19'])
+    det_weight_20 = int(request.POST['det_weight_20'])
+
+    det_weight_21 = int(request.POST['det_weight_21'])
+    det_weight_22 = int(request.POST['det_weight_22'])
+    det_weight_23 = int(request.POST['det_weight_23'])
+    det_weight_24 = int(request.POST['det_weight_24'])
+    det_weight_25 = int(request.POST['det_weight_25'])
+    det_weight_26 = int(request.POST['det_weight_26'])
+    det_weight_27 = int(request.POST['det_weight_27'])
+    det_weight_28 = int(request.POST['det_weight_28'])
+    det_weight_29 = int(request.POST['det_weight_29'])
+    det_weight_30 = int(request.POST['det_weight_30'])
+
+    date_take_off = request.POST['date_take_off']
+    factory_search = request.POST['factory_search']
+    waste_item_code = request.POST['waste_item_code']
+    group_search = request.POST['group_search']
+
+    if det_weight_1 > 0:
+        detail_no_1 = "1"
+        detail_weight = det_weight_1
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_1 , detail_weight)
+    
+    if det_weight_2 > 0:
+        detail_no_2 = "2"
+        detail_weight = det_weight_2
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_2 , detail_weight)
+    
+    if det_weight_3 > 0:
+        detail_no_3 = "3"
+        detail_weight = det_weight_3
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_3 , detail_weight)
+
+    if det_weight_4 > 0:
+        detail_no_4 = "4"
+        detail_weight = det_weight_4
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_4 , detail_weight)
+
+    if det_weight_5 > 0:
+        detail_no_5 = "5"
+        detail_weight = det_weight_5
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_5 , detail_weight)
+    
+    if det_weight_6 > 0:
+        detail_no_6 = "6"
+        detail_weight = det_weight_6
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_6 , detail_weight)
+
+    if det_weight_7 > 0:
+        detail_no_7 = "7"
+        detail_weight = det_weight_7
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_7 , detail_weight)
+ 
+    if det_weight_8 > 0:
+        detail_no_8 = "8"
+        detail_weight = det_weight_8
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_8 , detail_weight)
+
+    if det_weight_9 > 0:
+        detail_no_9 = "9"
+        detail_weight = det_weight_9
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_9 , detail_weight)
+
+    if det_weight_10 > 0:
+        detail_no_10 = "10"
+        detail_weight = det_weight_10
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_10 , detail_weight)
+
+    if det_weight_11 > 0:
+        detail_no_11 = "11"
+        detail_weight = det_weight_11
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_11 , detail_weight)
+
+    if det_weight_12 > 0:
+        detail_no_12 = "12"
+        detail_weight = det_weight_12
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_12 , detail_weight)
+
+    if det_weight_13 > 0:
+        detail_no_13 = "13"
+        detail_weight = det_weight_13
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_13 , detail_weight)
+
+    if det_weight_14 > 0:
+        detail_no_14 = "14"
+        detail_weight = det_weight_14
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_14 , detail_weight)
+
+    if det_weight_15 > 0:
+        detail_no_15 = "15"
+        detail_weight = det_weight_15
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_15 , detail_weight)
+
+    if det_weight_16 > 0:
+        detail_no_16 = "16"
+        detail_weight = det_weight_16
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_16 , detail_weight)
+    
+    if det_weight_17 > 0:
+        detail_no_17 = "17"
+        detail_weight = det_weight_17
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_17 , detail_weight)
+
+    if det_weight_18 > 0:
+        detail_no_18 = "18"
+        detail_weight = det_weight_18
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_18 , detail_weight)
+
+    if det_weight_19 > 0:
+        detail_no_19 = "19"
+        detail_weight = det_weight_19
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_19 , detail_weight)
+
+    if det_weight_20 > 0:
+        detail_no_20 = "20"
+        detail_weight = det_weight_20
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_20 , detail_weight)
+
+    if det_weight_21 > 0:
+        detail_no_21 = "21"
+        detail_weight = det_weight_21
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_21 , detail_weight)
+
+    if det_weight_22 > 0:
+        detail_no_22 = "22"
+        detail_weight = det_weight_22
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_22 , detail_weight) 
+
+    if det_weight_23 > 0:
+        detail_no_23 = "23"
+        detail_weight = det_weight_23
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_23 , detail_weight)  
+
+    if det_weight_24 > 0:
+        detail_no_24 = "24"
+        detail_weight = det_weight_24
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_24 , detail_weight)
+
+    if det_weight_25 > 0:
+        detail_no_25 = "25"
+        detail_weight = det_weight_25
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_25 , detail_weight)
+
+    if det_weight_26 > 0:
+        detail_no_26 = "26"
+        detail_weight = det_weight_26
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_26 , detail_weight)
+
+    if det_weight_27 > 0:
+        detail_no_27 = "27"
+        detail_weight = det_weight_27
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_27 , detail_weight)
+
+    if det_weight_28 > 0:
+        detail_no_28 = "28"
+        detail_weight = det_weight_28
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_28 , detail_weight)
+
+    if det_weight_29 > 0:
+        detail_no_29 = "29"
+        detail_weight = det_weight_29
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_29 , detail_weight)
+
+    if det_weight_30 > 0:
+        detail_no_30 = "30"
+        detail_weight = det_weight_30
+        save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_30 , detail_weight)
+
+    ajax_proj7_page3_save_waste_daily_transaction = "save data daily record successful"
+    return HttpResponse(ajax_proj7_page3_save_waste_daily_transaction)

@@ -1,4 +1,4 @@
-from .models import Waste_item_master_list , Waste_group_master_list , Waste_item_price_list ,Waste_item_map_factory
+from .models import Waste_item_master_list , Waste_group_master_list , Waste_item_price_list , Waste_item_map_factory , Waste_daily_transaction
 from .models import Company_master_list , Company_contact_name_list
 from datetime import datetime
 
@@ -302,3 +302,23 @@ def update_waste_item_map_factory(df_update):
             update_date = datetimesave,
             update_by = "Anupab.K"
         )
+
+#Function save database > save_waste_daily_transaction
+def save_waste_daily_transaction(date_take_off , factory_search , waste_item_code , group_search , detail_no_1 , detail_weight):
+    datetime_save = datetime.now()
+    date_save = datetime_save.date()
+    time_save = datetime_save.time()
+    datesave = date_save.strftime("%d/%m/%y")
+    timesave = time_save.strftime("%H:%M")
+    datetimesave = str(datesave) + " " + str(timesave)
+
+    db_save = Waste_daily_transaction()
+    db_save.date_take_off = date_take_off
+    db_save.factory_name = factory_search
+    db_save.waste_item_code = waste_item_code
+    db_save.waste_group_code = group_search
+    db_save.detail_no = detail_no_1
+    db_save.weight = detail_weight
+    db_save.update_date = datetimesave
+    db_save.update_by = "Anupab.K"
+    db_save.save()

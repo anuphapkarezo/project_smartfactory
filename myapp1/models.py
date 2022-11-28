@@ -65,7 +65,7 @@ class Waste_item_map_factory(models.Model):
 class Waste_daily_transaction(models.Model):
     date_take_off = models.CharField(max_length=20,default="")
     factory_name = models.CharField(max_length=5,default="")
-    waste_item_code = models.CharField(max_length=9,default="")
+    waste_item_code = models.CharField(max_length=100,default="")
     waste_group_code = models.CharField(max_length=5,default="")
     detail_no = models.CharField(max_length=20,default="")
     weight = models.CharField(max_length=20,default="")

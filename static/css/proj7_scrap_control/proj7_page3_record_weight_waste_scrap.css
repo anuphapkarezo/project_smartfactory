@@ -28,7 +28,7 @@
 #lbl_date {
     font-size: 24px;
     font-weight: bold;
-    margin-left: 15px;
+    margin-left: 30px;
     margin-top: 10px;
 }
 
@@ -106,12 +106,13 @@ th {
     height: 50px;
 }
 
-#txt_total,
-#txt_detail {
+.txt_total,
+.txt_detail {
     width: 80px;
     background-color: lightgrey;
     text-align: center;
     font-weight: bold;
+    color: gray;
 }
 
 .set_margin_td {
@@ -142,46 +143,80 @@ th {
     color: whitesmoke;
 }
 
-#modal_lbl_factory,
+
+/* #modal_lbl_factory,
 #modal_lbl_waste_item,
 #modal_lbl_dto {
     font-size: 18px;
-}
+} */
 
 #modal_lbl_factory {
-    margin-left: 20px;
-    margin-top: 15px;
+    font-size: 18px;
+    padding-left: 42px;
+    padding-top: 10px;
 }
 
-#modal_lbl_waste_item {
-    margin-left: 45px;
-    margin-top: 10px;
-}
-
-#modal_txt_factory,
-#modal_txt_waste_item,
-#modal_txt_dto {
+#modal_txt_factory {
+    border: 1px solid black;
     width: 120px;
+    height: 30px;
+    background-color: lightgrey;
     font-size: 18px;
     text-align: center;
     border-radius: 5px;
-    margin-left: 5px;
-    background-color: lightgrey;
-}
-
-#modal_txt_waste_item {
-    width: 480px;
-    padding-left: 5px;
-    text-align: left;
+    padding-top: 2.5px;
+    color: gray;
+    /* margin-top: 10px; */
 }
 
 #modal_lbl_dto {
+    font-size: 18px;
+    padding-left: 30px;
+}
+
+#modal_txt_dto {
+    border: 1px solid black;
+    width: 200px;
+    height: 30px;
+    background-color: lightgrey;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+    padding-top: 2.5px;
+    color: gray;
+    /* margin-top: 10px; */
+}
+
+#modal_lbl_waste_item {
+    font-size: 18px;
     margin-left: 20px;
     margin-top: 10px;
 }
 
-#modal_txt_dto {
-    width: 200px;
+#modal_txt_waste_item {
+    border: 1px solid black;
+    width: 180px;
+    height: 30px;
+    background-color: lightgrey;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+    padding-top: 2.5px;
+    color: gray;
+    /* margin-top: 10px; */
+}
+
+#modal_txt_waste_desc {
+    border: 1px solid black;
+    width: 290px;
+    height: 30px;
+    background-color: lightgrey;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+    padding-top: 2.5px;
+    color: gray;
+    /* margin-top: 15px; */
 }
 
 .modal_body {
@@ -203,7 +238,7 @@ th {
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: auto;
-    /* border: 1px solid black; */
+    border: 1px solid black;
 }
 
 
@@ -232,6 +267,13 @@ th {
 #modal_lbl_sum {
     margin-left: 5px;
     color: red;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#modal_lbl_sum_before {
+    margin-left: 10px;
+    display: none;
 }
 
 #btn_confirm {
@@ -259,8 +301,8 @@ th {
     /* display: grid;
     grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
     grid-template-columns: 120px 120px; */
-    margin-top: 5px;
-    margin-left: 40px;
+    /* margin-top: 5px; */
+    margin-left: 15px;
     margin-bottom: 10px;
 }
 
@@ -268,8 +310,8 @@ th {
     /* display: grid;
     grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
     grid-template-columns: 100px 120px; */
-    margin-top: 5px;
-    margin-left: 60px;
+    /* margin-top: 5px; */
+    margin-left: 20px;
     margin-bottom: 10px;
 }
 
@@ -277,8 +319,8 @@ th {
     /* display: grid;
     grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
     grid-template-columns: 100px 120px; */
-    margin-top: 5px;
-    margin-left: 60px;
+    /* margin-top: 5px; */
+    margin-left: 20px;
     margin-bottom: 10px;
 }
 
@@ -297,4 +339,14 @@ th {
 .td_modal {
     text-align: right;
     padding-top: 15px;
+}
+
+.btn_edit {
+    margin-top: 10px;
+}
+
+#model_lbl_group_code,
+#modal_tr_total,
+#modal_tr_detail {
+    display: none;
 }

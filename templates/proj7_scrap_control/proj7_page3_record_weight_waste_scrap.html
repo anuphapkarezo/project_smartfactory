@@ -26,6 +26,9 @@
             <a class="nav_link" href="/go_html_record_weight_waste_scrap" id="lbl_record_weight_waste_scrap">Record weight waste scrap</a>
         </div>
         <div class="box_2">
+            <label for="" id="lbl_date">Date take off :</label>
+            <input type="date" id="opt_select_date">
+
             <label for="" id="lbl_factory">Factory :</label>
             <select name="" id="opt_select_factory">
                 <option value="A1">A1</option>
@@ -38,9 +41,7 @@
                 <!-- <option value="1" name="" >Group 1-2 Industrial gabage</option> -->
             </select>
 
-            <label for="" id="lbl_date">Date take off :</label>
-            <input type="date" id="opt_select_date">
-            <input type="button" class="btn btn-sm btn-info" id="btn_search_item" value="Search item">
+            <!-- <input type="button" class="btn btn-sm btn-info" id="btn_search_item" value="Search item"> -->
             <!-- <input type="button" class="btn btn-sm btn-info" id="btn_test_modal" value="Test Modal" data-toggle="modal" data-target="#modal_key_weight"> -->
         </div>
         <div class="table_record_weight_waste_scrap">
@@ -75,16 +76,18 @@
                         <div class="modal_body box_picture">Picture scrap</div>
                         <div class="modal_body grid_title">
                             <div class="">
-                                <label id="modal_lbl_factory" for="">Factory :</label>
-                                <input id="modal_txt_factory" type="text">
+                                <label for="" id="modal_lbl_factory">Factory :</label>
+                                <label id="modal_txt_factory" for=""></label>
 
                                 <label id="modal_lbl_dto" for="">Date take off :</label>
-                                <input id="modal_txt_dto" type="text">
+                                <label id="modal_txt_dto" for=""></label>
                             </div>
 
                             <div class="">
-                                <label id="modal_lbl_waste_item" for="">Item :</label>
-                                <input id="modal_txt_waste_item" type="text">
+                                <label id="modal_lbl_waste_item" for="">Item code :</label>
+                                <label id="modal_txt_waste_item" for=""></label>
+                                <label for="">/</label>
+                                <label id="modal_txt_waste_desc" for=""></label>
                             </div>
                         </div>
                     </div>
@@ -92,12 +95,15 @@
                         <label id="modal_lbl_total" for="">Total Weight :</label>
                         <input id="modal_txt_total" type="text">
                         <label id="modal_lbl_sum" for="">0.00</label>
+                        <label id="modal_lbl_sum_before" for="">0.00</label>
+                        <label id="modal_tr_total" for=""></label>
+                        <label id="modal_tr_detail" for=""></label>
 
                         <input class="btn btn-success btn-sm" type="button" value="Confirm" id="btn_confirm">
                         <input class="btn btn-secondary btn-sm" type="button" value="Cancel" id="btn_cancel">
 
                         <label class="waring_text">กด Enter เมื่อ key น้ำหนักจำนวนสุดท้ายแล้ว</label>
-
+                        <label for="" id="model_lbl_group_code">Group</label>
                         <div class="modal_tabel">
                             <div class="grid_contrainer_1">
                                 <table>
@@ -106,6 +112,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_1">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -113,6 +120,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_2">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -120,6 +128,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_3">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -127,6 +136,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_4">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -134,6 +144,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_5">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -141,6 +152,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_6">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -148,6 +160,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_7">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -155,6 +168,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_8">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -162,6 +176,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_9">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -169,6 +184,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_10">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -180,6 +196,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_11">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -187,6 +204,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_12">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -194,6 +212,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_13">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -201,6 +220,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_14">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -208,6 +228,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_15">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -215,6 +236,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_16">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -222,6 +244,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_17">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -229,6 +252,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_18">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -236,6 +260,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_19">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -243,6 +268,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_20">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -254,6 +280,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_21">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -261,6 +288,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_22">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -268,6 +296,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_23">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -275,6 +304,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_24">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -282,6 +312,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_25">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -289,6 +320,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_26">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -296,6 +328,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_27">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -303,6 +336,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_28">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -310,6 +344,7 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_29">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
 
                                     <tr>
@@ -317,9 +352,11 @@
                                         <td>
                                             <input class="item_txt" type="text" id="det_weight_30">
                                         </td>
+                                        <td><input type="button" class="btn btn-warning btn-sm btn_edit" value="Edit"></td>
                                     </tr>
                                 </table>
                             </div>
+
                         </div>
                     </div>
                 </div>
