@@ -74,8 +74,8 @@ $(document).ready(function() {
     //                     '<td class="set_margin_td"> <label for="" class="to_modal_group_code" id="lbl_group_code">' + input_group_search + '</label> / ' + value_db.group_name + '</td>' +
     //                     '<td class="set_margin_td to_modal_dto">' + select_date_val + '</td>' +
     //                     '<td class="set_margin_td "> <label for="" class="to_modal_item">' + value_db.waste_item_code + '</label> / <label for="" class="to_modal_desc">' + value_db.description_EN + '</label></td>' +
-    //                     '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_total" id="txt_total_' + input_factory + '_' + value_db.waste_item_code + '" value=""></td>' +
-    //                     '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_detail" id="txt_detail_' + input_factory + '_' + value_db.waste_item_code + '" value=""></td>' +
+    //                     '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_total" id="txt_total_' + input_factory + '_' + value_db.waste_item_code + '" value="' + value_db.weight + '"></td>' +
+    //                     '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_detail" id="txt_detail_' + input_factory + '_' + value_db.waste_item_code + '" value="' + value_db.weight + '"></td>' +
     //                     '<td class="set_margin_td">Anupab.K</td>' +
     //                     '<td class="set_margin_td">' + today_date + '</td>' +
     //                     '<td class="set_margin_td"><input type="button" class="btn btn-sm btn-warning btn_add" id="btn_add" value="Key Weight" data-toggle="modal" data-target="#modal_key_weight"></td>' +
@@ -87,7 +87,7 @@ $(document).ready(function() {
     //     })
     // })
 
-    $(document).on('change', '#opt_select_group', function(e) {
+    $(document).on('click', '#btn_search_item', function(e) {
         var today_date = new Date();
         var dd = String(today_date.getDate()).padStart(2, '0');
         var mm = String(today_date.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -120,7 +120,8 @@ $(document).ready(function() {
             type: 'post', // ประเภทของการส่งข้อมูล
             data: { // ข้อมูลที่จะถูกส่งไปกับ url
                 'group_search': input_group_search,
-                'factory_search': input_factory
+                'factory_search': input_factory,
+                'select_date_val': select_date_val
             },
             success: function(ajax_proj7_page3_record_weight_waste_scrap_search_item) {
                 let json_txt = JSON.parse(ajax_proj7_page3_record_weight_waste_scrap_search_item)
@@ -133,8 +134,8 @@ $(document).ready(function() {
                         '<td class="set_margin_td"> <label for="" class="to_modal_group_code" id="lbl_group_code">' + input_group_search + '</label> / ' + value_db.group_name + '</td>' +
                         '<td class="set_margin_td to_modal_dto">' + select_date_val + '</td>' +
                         '<td class="set_margin_td "> <label for="" class="to_modal_item">' + value_db.waste_item_code + '</label> / <label for="" class="to_modal_desc">' + value_db.description_EN + '</label></td>' +
-                        '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_total" id="txt_total_' + input_factory + '_' + value_db.waste_item_code + '" value=""></td>' +
-                        '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_detail" id="txt_detail_' + input_factory + '_' + value_db.waste_item_code + '" value=""></td>' +
+                        '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_total" id="txt_total_' + input_factory + '_' + value_db.waste_item_code + '" value="' + value_db.weight + '"></td>' +
+                        '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_detail" id="txt_detail_' + input_factory + '_' + value_db.waste_item_code + '" value="' + value_db.weight + '"></td>' +
                         '<td class="set_margin_td">Anupab.K</td>' +
                         '<td class="set_margin_td">' + today_date + '</td>' +
                         '<td class="set_margin_td"><input type="button" class="btn btn-sm btn-warning btn_add" id="btn_add" value="Key Weight" data-toggle="modal" data-target="#modal_key_weight"></td>' +
@@ -147,16 +148,12 @@ $(document).ready(function() {
     })
 
     $(document).on('click', '.btn_add', function(e) {
+        var tr = $(this).closest('tr');
+
         $("#modal_txt_total").focus();
-
-        // $('#modal_txt_factory').prop('disabled', true);
-        // $('#modal_txt_dto').prop('disabled', true);
-        // $('#modal_txt_waste_item').prop('disabled', true);
-        // $('#modal_txt_waste_desc').prop('disabled', true);
-
         $('.item_txt').prop('disabled', true);
 
-        var tr = $(this).closest('tr');
+
         let modal_factory = tr.find('.to_modal_factory').text();
         let modal_group_code = tr.find('.to_modal_group_code').text();
         let modal_dto = tr.find('.to_modal_dto').text();
@@ -166,13 +163,65 @@ $(document).ready(function() {
         let tr_total = '#txt_total_' + modal_factory + '_' + modal_item
         let tr_detail = '#txt_detail_' + modal_factory + '_' + modal_item
 
-        $("#modal_txt_factory").text(modal_factory);
-        $("#modal_txt_dto").text(modal_dto);
-        $("#modal_txt_waste_item").text(modal_item);
-        $("#modal_txt_waste_desc").text(modal_desc);
-        $("#model_lbl_group_code").text(modal_group_code);
-        $("#modal_tr_total").text(tr_total);
-        $("#modal_tr_detail").text(tr_detail);
+        let tr_total_search = tr.find(tr_total).val();
+        let tr_detail_serach = tr.find(tr_detail).val();
+
+        if (tr_total_search > 0) {
+            $('.item_txt').prop('disabled', false);
+            $.ajax({
+                url: 'proj7_page3_search_waste_daily_transaction', // เรียกใช้ URL
+                type: 'post', // ประเภทของการส่งข้อมูล
+                data: { // ข้อมูลที่จะถูกส่งไปกับ url
+                    'group_search': modal_group_code,
+                    'factory_search': modal_factory,
+                    'select_date_val': modal_dto
+                },
+                success: function(ajax_proj7_page3_search_waste_daily_transaction) {
+                    let json_txt = JSON.parse(ajax_proj7_page3_search_waste_daily_transaction)
+                    let row_no = 0
+
+                    $.each(json_txt, function(key, value_db) {
+                        let sum_det = parseFloat($('#modal_lbl_sum').text())
+
+                        let detail_no_json = value_db.detail_no
+                        let weight_json = value_db.weight
+
+                        let id_detail = "#det_weight_" + detail_no_json
+                        let sum_w = ((sum_det + weight_json)).toFixed(2)
+
+                        $(id_detail).val(weight_json);
+                        $(id_detail).prop('disabled', true);
+
+                        if (tr_total_search != sum_det) {
+                            $('#modal_lbl_sum').text(sum_w);
+                        }
+
+                        if (sum_w = tr_total_search) {
+                            $("#modal_lbl_sum").css("color", "green");
+                        } else {
+                            $("#modal_lbl_sum").css("color", "red");
+                        }
+                    })
+                    $("#modal_txt_factory").text(modal_factory);
+                    $("#modal_txt_dto").text(modal_dto);
+                    $("#modal_txt_waste_item").text(modal_item);
+                    $("#modal_txt_waste_desc").text(modal_desc);
+                    $("#model_lbl_group_code").text(modal_group_code);
+                    $("#modal_tr_total").text(tr_total);
+                    $("#modal_tr_detail").text(tr_detail);
+
+                    $("#modal_txt_total").val(tr_total_search);
+                }
+            })
+        } else {
+            $("#modal_txt_factory").text(modal_factory);
+            $("#modal_txt_dto").text(modal_dto);
+            $("#modal_txt_waste_item").text(modal_item);
+            $("#modal_txt_waste_desc").text(modal_desc);
+            $("#model_lbl_group_code").text(modal_group_code);
+            $("#modal_tr_total").text(tr_total);
+            $("#modal_tr_detail").text(tr_detail);
+        }
     });
 
     $(document).on('change', '.item_txt', function(e) {
@@ -231,15 +280,33 @@ $(document).ready(function() {
     $(document).on('click', '.btn_edit', function(e) {
         var tr = $(this).closest('tr');
 
+        let total_w = parseFloat($("#modal_txt_total").val());
         let sum_w = parseFloat($("#modal_lbl_sum").text());
         let detail_w = parseFloat(tr.find('.item_txt').val())
+        if (isNaN(detail_w)) {
+            tr.find('.item_txt').focus()
+            return;
+        }
+
         sum_w = (sum_w - detail_w).toFixed(2)
 
         tr.find('.item_txt').prop('disabled', false)
         tr.find('.item_txt').focus()
         tr.find('.item_txt').val('');
         $("#modal_lbl_sum").text(sum_w)
+        console.log(sum_w);
+
+
+
+        if (total_w > sum_w) {
+            $("#modal_lbl_sum").css("color", "red");
+
+        } else {
+            $("#modal_lbl_sum").css("color", "green");
+        }
+
         $("#modal_lbl_sum_before").text(detail_w);
+
     })
 
 
@@ -282,6 +349,13 @@ $(document).ready(function() {
             $('#det_weight_1').focus()
             return;
         }
+
+        if (isNaN(total_w)) {
+            alert("Warning !!! => Please key data")
+            $('#modal_txt_total').focus()
+            return;
+        }
+
         date_take_off = $('#modal_txt_dto').text()
         factory_name = $('#modal_txt_factory').text()
         waste_item_code = $('#modal_txt_waste_item').text()
@@ -552,9 +626,9 @@ $(document).ready(function() {
                 $('#modal_txt_dto').val('')
                 $('#modal_txt_waste_item').val('')
                 $('#modal_txt_total').val('')
-                $('#modal_lbl_sum').text('')
+                $('#modal_lbl_sum').text('0.00')
                 $("#modal_lbl_sum").css("color", "red");
-                $('#modal_lbl_sum_before').text('')
+                $('#modal_lbl_sum_before').text('0.00')
                 $('#model_lbl_group_code').text('')
 
                 $('#modal_txt_total').prop('disabled', false);

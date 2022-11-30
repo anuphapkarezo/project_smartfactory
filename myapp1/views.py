@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-from .models import Waste_item_master_list , Waste_group_master_list , Waste_item_price_list , Waste_item_map_factory
+from .models import Waste_item_master_list , Waste_group_master_list , Waste_item_price_list , Waste_item_map_factory , Waste_daily_transaction
 from .models import Company_master_list , Company_contact_name_list
 
 import pandas as pd
@@ -433,7 +433,7 @@ def proj7_page3_record_weight_waste_scrap_search_item(request):
     # df_data_result = pd.DataFrame(list(Waste_item_master_list.objects.filter(waste_group_code=group_search_post).values()))
     group_search_post = request.POST['group_search']
     factory_search_post = request.POST['factory_search']
-    
+    select_date_val_post  = request.POST['select_date_val']
     # db_item_map_factory = pd.DataFrame(list(Waste_item_map_factory.objects.filter(factory_name=factory_search_post).values()))
     
     # df_merge_data_map = pd.merge(db_item_master,db_item_master,how="inner",on=["waste_item_code"])
@@ -451,10 +451,18 @@ def proj7_page3_record_weight_waste_scrap_search_item(request):
     # print(db_item_map_factory)
     # print('/////////////////////////////////////////')
     df_merge_data_map = pd.merge(df_merge_data,db_item_map_factory,how="inner",on=["waste_item_code"])
-    # print(df_merge_data_map)
 
+    df_daily_transaction = Waste_daily_transaction.objects.filter(date_take_off=select_date_val_post , factory_name = factory_search_post , waste_group_code = group_search_post).exists()
+    if df_daily_transaction == True :
+        df_daily_transaction_val = pd.DataFrame(list(Waste_daily_transaction.objects.filter(date_take_off=select_date_val_post , factory_name = factory_search_post , waste_group_code = group_search_post).values()))
+        df_daily_transaction_val['weight'] = df_daily_transaction_val['weight'].astype(float)
+        df_daily_transaction_val = df_daily_transaction_val.groupby(['waste_item_code'  , 'factory_name' , 'waste_group_code'],as_index=False)['weight'].sum()
+        df_daily_transaction_val.fillna('Other',inplace=True)
 
-    # print(df_merge_data[['waste_item_code' , 'factory_name' , 'group_name']])
+        df_merge_data_map = pd.merge(df_merge_data_map,df_daily_transaction_val,how="left",on=['waste_item_code'  , 'factory_name' , 'waste_group_code'])
+        df_merge_data_map.fillna(0,inplace=True)
+    else:
+        df_merge_data_map['weight'] = 0
 
     json_records = df_merge_data_map.reset_index().to_json(orient='records')
     data_loads = json.loads(json_records)
@@ -502,6 +510,10 @@ def proj7_page3_save_waste_daily_transaction(request):
     factory_search = request.POST['factory_search']
     waste_item_code = request.POST['waste_item_code']
     group_search = request.POST['group_search']
+
+    df_daily_transaction_val = Waste_daily_transaction.objects.filter(date_take_off=date_take_off , factory_name = factory_search , waste_item_code = waste_item_code).exists()
+    if df_daily_transaction_val == True :
+        df_daily_transaction_val = Waste_daily_transaction.objects.filter(date_take_off=date_take_off , factory_name = factory_search , waste_item_code = waste_item_code).delete()
 
     if det_weight_1 > 0:
         detail_no_1 = "1"
@@ -655,3 +667,24 @@ def proj7_page3_save_waste_daily_transaction(request):
 
     ajax_proj7_page3_save_waste_daily_transaction = "save data daily record successful"
     return HttpResponse(ajax_proj7_page3_save_waste_daily_transaction)
+
+# db_item_master = Waste_item_master_list.objects.filter(waste_group_code=group_search_post).exists()
+@csrf_exempt
+def proj7_page3_search_waste_daily_transaction(request):
+    group_search_post = request.POST['group_search']
+    factory_search_post = request.POST['factory_search']
+    select_date_val_post  = request.POST['select_date_val']
+    print(group_search_post)
+    print(factory_search_post)
+    print(select_date_val_post)
+
+    df_daily_transaction_val = pd.DataFrame(list(Waste_daily_transaction.objects.filter(date_take_off=select_date_val_post , factory_name = factory_search_post , waste_group_code = group_search_post).values()))
+    df_daily_transaction_val['weight'] = df_daily_transaction_val['weight'].astype(float)
+    print(df_daily_transaction_val)
+
+    json_records = df_daily_transaction_val.reset_index().to_json(orient='records')
+    data_loads = json.loads(json_records)
+    ajax_proj7_page3_search_daily_transaction = dumps(data_loads)
+
+    return HttpResponse(ajax_proj7_page3_search_daily_transaction)
+    

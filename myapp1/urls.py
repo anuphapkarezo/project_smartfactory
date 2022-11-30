@@ -54,4 +54,5 @@ urlpatterns = [
     path('proj7_page3_record_weight_waste_scrap',views.proj7_page3_record_weight_waste_scrap),
     path('proj7_page3_record_weight_waste_scrap_search_item',views.proj7_page3_record_weight_waste_scrap_search_item),
     path('proj7_page3_save_waste_daily_transaction',views.proj7_page3_save_waste_daily_transaction),
+    path('proj7_page3_search_waste_daily_transaction',views.proj7_page3_search_waste_daily_transaction),
 ]
