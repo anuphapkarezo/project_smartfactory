@@ -153,7 +153,6 @@ $(document).ready(function() {
         $("#modal_txt_total").focus();
         $('.item_txt').prop('disabled', true);
 
-
         let modal_factory = tr.find('.to_modal_factory').text();
         let modal_group_code = tr.find('.to_modal_group_code').text();
         let modal_dto = tr.find('.to_modal_dto').text();
@@ -172,7 +171,7 @@ $(document).ready(function() {
                 url: 'proj7_page3_search_waste_daily_transaction', // เรียกใช้ URL
                 type: 'post', // ประเภทของการส่งข้อมูล
                 data: { // ข้อมูลที่จะถูกส่งไปกับ url
-                    'group_search': modal_group_code,
+                    'waste_item_code': modal_item,
                     'factory_search': modal_factory,
                     'select_date_val': modal_dto
                 },

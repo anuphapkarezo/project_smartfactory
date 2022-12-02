@@ -671,14 +671,14 @@ def proj7_page3_save_waste_daily_transaction(request):
 # db_item_master = Waste_item_master_list.objects.filter(waste_group_code=group_search_post).exists()
 @csrf_exempt
 def proj7_page3_search_waste_daily_transaction(request):
-    group_search_post = request.POST['group_search']
+    waste_item_code = request.POST['waste_item_code']
     factory_search_post = request.POST['factory_search']
     select_date_val_post  = request.POST['select_date_val']
-    print(group_search_post)
+    print(waste_item_code)
     print(factory_search_post)
     print(select_date_val_post)
 
-    df_daily_transaction_val = pd.DataFrame(list(Waste_daily_transaction.objects.filter(date_take_off=select_date_val_post , factory_name = factory_search_post , waste_group_code = group_search_post).values()))
+    df_daily_transaction_val = pd.DataFrame(list(Waste_daily_transaction.objects.filter(date_take_off=select_date_val_post , factory_name = factory_search_post , waste_item_code = waste_item_code).values()))
     df_daily_transaction_val['weight'] = df_daily_transaction_val['weight'].astype(float)
     print(df_daily_transaction_val)
 
