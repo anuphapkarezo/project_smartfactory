@@ -148,6 +148,18 @@ $(document).ready(function() {
     })
 
     $(document).on('click', '.btn_add', function(e) {
+        // Reset Modal
+        $('.item_txt').val('');
+        $("#modal_txt_total").val('');
+        $("#modal_lbl_sum").text(0);
+        $("#modal_lbl_sum_before").text(0);
+        $("#modal_lbl_sum").css("color", "red");
+        $('.item_txt').prop('disabled', true);
+        $('#modal_txt_total').prop('disabled', false);
+
+        $("#modal_txt_total").focus();
+
+
         var tr = $(this).closest('tr');
 
         $("#modal_txt_total").focus();
