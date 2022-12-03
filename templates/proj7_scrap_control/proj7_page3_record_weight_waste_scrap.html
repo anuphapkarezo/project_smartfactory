@@ -18,6 +18,7 @@
     <!-- --------------------------------------------------------------------------------------------- -->
     <script type="text/javascript" src="{% static 'js/proj7_scrap_control/proj7_page3_record_weight_waste_scrap.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/proj7_scrap_control/proj7_page3_record_weight_waste_scrap.css' %}">
+    <script src="{% static 'js/excelexportjs.js' %}"></script>
 
     <div class="main_class">
         <div class="box_1">
@@ -42,10 +43,12 @@
             </select>
 
             <input type="button" class="btn btn-sm btn-info" id="btn_search_item" value="Search item">
+            <input type="button" class="btn btn-sm btn-success" id="btn_export_excel" value="Export Data">
+
             <!-- <input type="button" class="btn btn-sm btn-info" id="btn_test_modal" value="Test Modal" data-toggle="modal" data-target="#modal_key_weight"> -->
         </div>
         <div class="table_record_weight_waste_scrap">
-            <table>
+            <table id="tb_record_weight_waste_scrap">
                 <thead class="thead_record_weight_waste_scrap">
                     <tr>
                         <th class="width_thead" id="th_factory">Factory</th>
@@ -96,8 +99,9 @@
                         <input id="modal_txt_total" type="text">
                         <label id="modal_lbl_sum" for="">0.00</label>
                         <label id="modal_lbl_sum_before" for="">0.00</label>
-                        <label id="modal_tr_total" for=""></label>
-                        <label id="modal_tr_detail" for=""></label>
+
+                        <label id="modal_label_total" for=""></label>
+                        <label id="modal_label_detail" for=""></label>
 
                         <input class="btn btn-success btn-sm" type="button" value="Confirm" id="btn_confirm">
                         <input class="btn btn-secondary btn-sm" type="button" value="Cancel" id="btn_cancel">

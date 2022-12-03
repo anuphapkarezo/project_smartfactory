@@ -134,8 +134,10 @@ $(document).ready(function() {
                         '<td class="set_margin_td"> <label for="" class="to_modal_group_code" id="lbl_group_code">' + input_group_search + '</label> / ' + value_db.group_name + '</td>' +
                         '<td class="set_margin_td to_modal_dto">' + select_date_val + '</td>' +
                         '<td class="set_margin_td "> <label for="" class="to_modal_item">' + value_db.waste_item_code + '</label> / <label for="" class="to_modal_desc">' + value_db.description_EN + '</label></td>' +
-                        '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_total" id="txt_total_' + input_factory + '_' + value_db.waste_item_code + '" value="' + value_db.weight + '"></td>' +
-                        '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_detail" id="txt_detail_' + input_factory + '_' + value_db.waste_item_code + '" value="' + value_db.weight + '"></td>' +
+                        // '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_total" id="txt_total_' + input_factory + '_' + value_db.waste_item_code + '" value="' + value_db.weight + '"> <label class="label_export label_total" for="" id="label_total_' + input_factory + '_' + value_db.waste_item_code + '">' + value_db.weight + '</label></td>' +
+                        '<td class="set_textbox_td"><label class="label_export label_total" for="" id="label_total_' + input_factory + '_' + value_db.waste_item_code + '">' + value_db.weight + '</label></td>' +
+                        // '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_detail" id="txt_detail_' + input_factory + '_' + value_db.waste_item_code + '" value="' + value_db.weight + '"> <label class="label_export label_detail" for="" id="label_detail_' + input_factory + '_' + value_db.waste_item_code + '">' + value_db.weight + '</label></td>' +
+                        '<td class="set_textbox_td"><label class="label_export label_detail" for="" id="label_detail_' + input_factory + '_' + value_db.waste_item_code + '">' + value_db.weight + '</label></td>' +
                         '<td class="set_margin_td">Anupab.K</td>' +
                         '<td class="set_margin_td">' + today_date + '</td>' +
                         '<td class="set_margin_td"><input type="button" class="btn btn-sm btn-warning btn_add" id="btn_add" value="Key Weight" data-toggle="modal" data-target="#modal_key_weight"></td>' +
@@ -171,11 +173,14 @@ $(document).ready(function() {
         let modal_item = tr.find('.to_modal_item').text();
         let modal_desc = tr.find('.to_modal_desc').text();
 
-        let tr_total = '#txt_total_' + modal_factory + '_' + modal_item
-        let tr_detail = '#txt_detail_' + modal_factory + '_' + modal_item
+        // let tr_total = '#txt_total_' + modal_factory + '_' + modal_item
+        // let tr_detail = '#txt_detail_' + modal_factory + '_' + modal_item
 
-        let tr_total_search = tr.find(tr_total).val();
-        let tr_detail_serach = tr.find(tr_detail).val();
+        let lbl_total = '#label_total_' + modal_factory + '_' + modal_item
+        let lbl_detail = '#label_detail_' + modal_factory + '_' + modal_item
+
+        let tr_total_search = tr.find(lbl_total).val();
+        let tr_detail_serach = tr.find(lbl_detail).val();
 
         if (tr_total_search > 0) {
             $('.item_txt').prop('disabled', false);
@@ -218,8 +223,10 @@ $(document).ready(function() {
                     $("#modal_txt_waste_item").text(modal_item);
                     $("#modal_txt_waste_desc").text(modal_desc);
                     $("#model_lbl_group_code").text(modal_group_code);
-                    $("#modal_tr_total").text(tr_total);
-                    $("#modal_tr_detail").text(tr_detail);
+                    // $("#modal_tr_total").text(tr_total);
+                    // $("#modal_tr_detail").text(tr_detail);
+                    $("#modal_label_total").text(lbl_total);
+                    $("#modal_label_detail").text(lbl_detail);
 
                     $("#modal_txt_total").val(tr_total_search);
                 }
@@ -230,8 +237,10 @@ $(document).ready(function() {
             $("#modal_txt_waste_item").text(modal_item);
             $("#modal_txt_waste_desc").text(modal_desc);
             $("#model_lbl_group_code").text(modal_group_code);
-            $("#modal_tr_total").text(tr_total);
-            $("#modal_tr_detail").text(tr_detail);
+            // $("#modal_tr_total").text(tr_total);
+            // $("#modal_tr_detail").text(tr_detail);
+            $("#modal_label_total").text(lbl_total);
+            $("#modal_label_detail").text(lbl_detail);
         }
     });
 
@@ -323,11 +332,15 @@ $(document).ready(function() {
 
     $(document).on('change', '#modal_txt_total', function(e) {
         let total_val = $('#modal_txt_total').val();
+        let sum_val = $('#modal_lbl_sum').val();
 
         if (total_val >= 0) {
             $('#modal_txt_total').prop('disabled', true);
             $('.item_txt').prop('disabled', false);
             $('#det_weight_1').focus()
+            if (total_val > sum_val) {
+                $("#modal_lbl_sum").css("color", "red");
+            }
         }
 
         if (total_val == 0 || total_val == NaN) {
@@ -371,8 +384,10 @@ $(document).ready(function() {
         factory_name = $('#modal_txt_factory').text()
         waste_item_code = $('#modal_txt_waste_item').text()
         input_group_search = $('#model_lbl_group_code').text()
-        tr_txt_total = $('#modal_tr_total').text()
-        tr_txt_detail = $('#modal_tr_detail').text()
+            // tr_txt_total = $('#modal_tr_total').text()
+            // tr_txt_detail = $('#modal_tr_detail').text()
+        tr_lbl_total = $('#modal_label_total').text()
+        tr_lbl_detail = $('#modal_label_detail').text()
 
         // 1 > 10
         det_weight_1 = $('#det_weight_1').val()
@@ -649,9 +664,38 @@ $(document).ready(function() {
 
                 $('#modal_txt_total').focus()
                 $('#modal_key_weight').modal('toggle');
-                $(tr_txt_total).val(total_w)
-                $(tr_txt_detail).val(sum_w)
+                // $(tr_txt_total).val(total_w)
+                // $(tr_txt_detail).val(sum_w)
+                $(tr_lbl_total).text(total_w)
+                $(tr_lbl_detail).text(sum_w)
             }
         })
+    })
+
+    $('#btn_export_excel').click(function() {
+        var today_date = new Date();
+        var dd = String(today_date.getDate()).padStart(2, '0');
+        var mm = String(today_date.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today_date.getFullYear();
+
+        var hh = String(today_date.getHours())
+        var min = String(today_date.getMinutes())
+        today_date = dd + mm + yyyy + hh + min;
+        FILE_name = 'SummaryWeightDetail_' + today_date
+        console.log(FILE_name);
+
+        var rowCount = $('.tbody_record_weight_waste_scrap tr').length;
+        if (rowCount > 0) {
+            $('#tb_record_weight_waste_scrap').excelexportjs({
+                containerid: 'tb_record_weight_waste_scrap',
+                datatype: 'table'
+            })
+            $(this).attr('download', FILE_name) // set file name (you want to put formatted date here)
+                .attr('href', uri) // data to download
+                .attr('target', '_blank') // open in new window (optional)
+        } else {
+            alert("No data for export to excel")
+            return
+        }
     })
 })
