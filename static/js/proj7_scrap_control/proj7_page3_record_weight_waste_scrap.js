@@ -179,8 +179,8 @@ $(document).ready(function() {
         let lbl_total = '#label_total_' + modal_factory + '_' + modal_item
         let lbl_detail = '#label_detail_' + modal_factory + '_' + modal_item
 
-        let tr_total_search = tr.find(lbl_total).val();
-        let tr_detail_serach = tr.find(lbl_detail).val();
+        let tr_total_search = tr.find(lbl_total).text();
+        let tr_detail_serach = tr.find(lbl_detail).text();
 
         if (tr_total_search > 0) {
             $('.item_txt').prop('disabled', false);
