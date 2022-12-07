@@ -76,27 +76,47 @@ th {
 
 .width_thead {
     font-size: 16px;
-    width: 100px;
+    width: 75px;
 }
 
 #th_item {
-    width: 400px;
+    width: 405px;
 }
 
 #th_group {
-    width: 260px;
+    width: 270px;
 }
 
 #th_date,
 #th_updateby,
-#th_updatedate,
+#th_updatedate {
+    width: 140px;
+}
+
+#th_total,
+#th_details {
+    width: 90px;
+}
+
 #th_remark {
-    width: 160px;
+    width: 225px;
 }
 
 .btn_add {
-    width: 100px;
+    width: 90px;
     margin-left: 5px;
+}
+
+.btn_clear {
+    width: 100px;
+    margin-left: 3px;
+}
+
+.to_modal_factory,
+.to_modal_dto,
+.to_modal_update_by,
+.to_modal_update_date {
+    text-align: center;
 }
 
 .set_textbox_td {

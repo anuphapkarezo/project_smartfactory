@@ -138,9 +138,9 @@ $(document).ready(function() {
                         '<td class="set_textbox_td"><label class="label_export label_total" for="" id="label_total_' + input_factory + '_' + value_db.waste_item_code + '">' + value_db.weight + '</label></td>' +
                         // '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_detail" id="txt_detail_' + input_factory + '_' + value_db.waste_item_code + '" value="' + value_db.weight + '"> <label class="label_export label_detail" for="" id="label_detail_' + input_factory + '_' + value_db.waste_item_code + '">' + value_db.weight + '</label></td>' +
                         '<td class="set_textbox_td"><label class="label_export label_detail" for="" id="label_detail_' + input_factory + '_' + value_db.waste_item_code + '">' + value_db.weight + '</label></td>' +
-                        '<td class="set_margin_td">Anupab.K</td>' +
-                        '<td class="set_margin_td">' + today_date + '</td>' +
-                        '<td class="set_margin_td"><input type="button" class="btn btn-sm btn-warning btn_add" id="btn_add" value="Key Weight" data-toggle="modal" data-target="#modal_key_weight"></td>' +
+                        '<td class="set_margin_td to_modal_update_by">Anupab.K</td>' +
+                        '<td class="set_margin_td to_modal_update_date">' + today_date + '</td>' +
+                        '<td class="set_margin_td"><input type="button" class="btn btn-sm btn-warning btn_add" id="btn_add" value="Key Weight" data-toggle="modal" data-target="#modal_key_weight"> <input type="button" class="btn btn-sm btn-danger btn_clear" id="btn_clear" value="Clear weight"> </td>' +
                         '</tr>'
                 })
                 $('.tbody_record_weight_waste_scrap').html(row);
@@ -695,6 +695,34 @@ $(document).ready(function() {
                 .attr('target', '_blank') // open in new window (optional)
         } else {
             alert("No data for export to excel")
+            return
+        }
+    })
+
+    $(document).on('click', '.btn_clear', function(e) {
+        if (confirm('Are you sure you want to clear this detail weight ?')) {
+            // Clear weight!
+            var tr = $(this).closest('tr');
+            let tr_factory = tr.find('.to_modal_factory').text();
+            let tr_date_take_off = tr.find('.to_modal_dto').text();
+            let tr_waste_item_code = tr.find('.to_modal_item').text();
+
+            $.ajax({
+                url: 'proj7_page3_clear_waste_daily_transaction', // เรียกใช้ URL
+                type: 'post', // ประเภทของการส่งข้อมูล
+                data: { // ข้อมูลที่จะถูกส่งไปกับ url
+                    'tr_factory': tr_factory,
+                    'tr_date_take_off': tr_date_take_off,
+                    'tr_waste_item_code': tr_waste_item_code,
+                },
+                success: function(ajax_proj7_page3_clear_waste_daily_transaction) {
+                    tr.find('.label_total').text('0');
+                    tr.find('.label_detail').text('0');
+                    alert(ajax_proj7_page3_clear_waste_daily_transaction)
+                }
+            })
+        } else {
+            // Do nothing!
             return
         }
     })

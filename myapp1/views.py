@@ -505,6 +505,7 @@ def proj7_page3_save_waste_daily_transaction(request):
     det_weight_28 = float(request.POST['det_weight_28'])
     det_weight_29 = float(request.POST['det_weight_29'])
     det_weight_30 = float(request.POST['det_weight_30'])
+    
 
     date_take_off = request.POST['date_take_off']
     factory_search = request.POST['factory_search']
@@ -687,4 +688,20 @@ def proj7_page3_search_waste_daily_transaction(request):
     ajax_proj7_page3_search_daily_transaction = dumps(data_loads)
 
     return HttpResponse(ajax_proj7_page3_search_daily_transaction)
+
+@csrf_exempt
+def proj7_page3_clear_waste_daily_transaction(request):
+    factory_post = request.POST['tr_factory']
+    date_take_off_post = request.POST['tr_date_take_off']
+    waste_item_code_post = request.POST['tr_waste_item_code']
+
+    df_daily_transaction_val = Waste_daily_transaction.objects.filter(date_take_off=date_take_off_post , factory_name = factory_post , waste_item_code = waste_item_code_post).exists()
+    if df_daily_transaction_val == True :
+        print(df_daily_transaction_val)
+        Waste_daily_transaction.objects.filter(date_take_off=date_take_off_post , factory_name = factory_post , waste_item_code = waste_item_code_post).delete()
+        ajax_proj7_page3_clear_waste_daily_transaction = "Clear detail weight successful"
+        return HttpResponse(ajax_proj7_page3_clear_waste_daily_transaction)
     
+    else:
+        ajax_proj7_page3_clear_waste_daily_transaction = "No have data in database"
+        return HttpResponse(ajax_proj7_page3_clear_waste_daily_transaction)
