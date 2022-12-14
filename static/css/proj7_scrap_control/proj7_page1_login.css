@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.box {
+    margin: 200px auto;
+    height: 240px;
+    max-width: 450px;
+    border: 1px solid lighgray;
+    border-radius: 5px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.head {
+    text-align: center;
+    color: aliceblue;
+    background-color: royalblue;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 40px;
+    font-size: 25px;
+}
+
+.login-name {
+    text-align: center;
+    margin: 5px;
+}
+
+.user {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+}
+
+#txt_userName {
+    width: 200px;
+    height: 30px;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+.pw {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+}
+
+#txt_passWord {
+    width: 200px;
+    height: 30px;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+.sing {
+    display: inline-block;
+    width: 150px;
+    margin-top: 10px;
+}
+
+.end {
+    background-color: lightskyblue;
+    height: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top: 20px;
+}
+
+#forgot {
+    color: blue;
+}
+
+#forgot:hover {
+    color: black;
+    transition: width 0.2s;
+}
+
+.modal-header {
+    background-color: blue;
+    height: 70px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modal-title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.modal-body {
+    height: 70px;
+}

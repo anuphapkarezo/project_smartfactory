@@ -15,6 +15,8 @@ from .proj7_functions import save_waste_daily_transaction
 
 import json
 from json import dumps
+import requests
+
 # Create your views here.
 def go_index(request):
     return  render(request,'index.html')
@@ -78,6 +80,9 @@ def Page_main_menu(request):
 
 def Page_Login(request):
     return  render(request,'Smart_scrap_management/Page_Login.html')
+
+def go_html_login(request):
+    return render(request,'proj7_scrap_control/proj7_page1_login.html')
 
 def go_html_record_weight(request):
     return  render(request,'proj7_scrap_control/proj7_page1_record_weight.html')
@@ -705,3 +710,84 @@ def proj7_page3_clear_waste_daily_transaction(request):
     else:
         ajax_proj7_page3_clear_waste_daily_transaction = "No have data in database"
         return HttpResponse(ajax_proj7_page3_clear_waste_daily_transaction)
+
+@csrf_exempt
+def proj7_page1_login_alert(request):
+    user_login_df = request.POST['user_login_df']
+    pass_login_df = request.POST['pass_login_df']
+    url_api = 'http://10.17.66.112:8080/smartplanning/user_login/?username=' + user_login_df
+    api_req = requests.get(url_api,verify=False)
+    db_string = api_req.json()
+    df_user_login = pd.DataFrame(db_string)
+    print(df_user_login)
+    # Check user
+    if len(df_user_login) > 0 :
+        #Check password
+        df_user_login = df_user_login[df_user_login['proj1_usermaster_user_password'] == pass_login_df ]
+        print(df_user_login)
+        if len(df_user_login) > 0 :
+            print("Password OK")
+            
+            #Check system role
+            url_api = 'http://10.17.66.112:8080/smartplanning/system_permission/?username=' + str(user_login_df) + '&system_code=1'
+            api_req = requests.get(url_api,verify=False)
+            db_string = api_req.json()
+            df_system_role = pd.DataFrame(db_string)
+            print(df_system_role)
+            if len(df_system_role) > 0 :
+                ajax_proj7_page1_login_alert = "Login Complete."
+                return HttpResponse(ajax_proj7_page1_login_alert)
+            else:
+                ajax_proj7_page1_login_alert = "Missing system role, Try to check again."
+                return HttpResponse(ajax_proj7_page1_login_alert)
+        else:
+            ajax_proj7_page1_login_alert = "Password incorrect."
+            return HttpResponse(ajax_proj7_page1_login_alert)
+
+    else:
+        print("Not found user")
+        ajax_proj7_page1_login_alert = "Not found this user, Try to check again."
+        return HttpResponse(ajax_proj7_page1_login_alert)
+    
+    # ajax_proj7_page1_login_alert = "Login Complete."
+    # return HttpResponse(ajax_proj7_page1_login_alert)
+        
+
+@csrf_exempt
+def proj7_page1_login(request):
+    user_login_df = request.POST['userName']
+    pass_login_df = request.POST['passWord']
+    url_api = 'http://10.17.66.112:8080/smartplanning/user_login/?username=' + user_login_df
+    api_req = requests.get(url_api,verify=False)
+    db_string = api_req.json()
+    df_user_login = pd.DataFrame(db_string)
+    print(df_user_login)
+    # Check user
+    if len(df_user_login) > 0 :
+        #Check password
+        df_user_login = df_user_login[df_user_login['proj1_usermaster_user_password'] == pass_login_df ]
+        print(df_user_login)
+        if len(df_user_login) > 0 :
+            print("Password OK")
+            
+            #Check system role
+            url_api = 'http://10.17.66.112:8080/smartplanning/system_permission/?username=' + str(user_login_df) + '&system_code=1'
+            api_req = requests.get(url_api,verify=False)
+            db_string = api_req.json()
+            df_system_role = pd.DataFrame(db_string)
+            print(df_system_role)
+            if len(df_system_role) > 0 :
+                print("Login OK")
+                return render(request,'proj7_scrap_control/proj7_page3_record_weight_waste_scrap.html')
+            else:
+                print("Missing system role")
+                return render(request,'proj7_scrap_control/proj7_page1_login.html')
+        else:
+            print("Missing Password")
+            return render(request,'proj7_scrap_control/proj7_page1_login.html')
+
+    else:
+        print("Not found user")
+        return render(request,'proj7_scrap_control/proj7_page1_login.html')
+
+

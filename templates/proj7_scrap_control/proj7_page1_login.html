@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    {% load static %}
+
+    <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
+</head>
+
+<body>
+    <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
+
+    <script type="text/javascript" src="{% static 'js/proj7_scrap_control/proj7_page1_login.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/proj7_scrap_control/proj7_page1_login.css' %}">
+
+    <div class="box">
+        <form action="proj7_page1_login" method="post" enctype="multipart/form-data">
+
+            <div class="head">
+                <h3>Smart scrap menegement</h3>
+            </div>
+
+            <div class="login-name">
+                <h5>Login</h5>
+            </div>
+
+            <div class="username">
+                <div class="user"><label for=""><b> Username :</b></label></div>
+                <div class="user"><input type="text" id="txt_userName" name="userName" class="form-control"></div>
+            </div>
+
+            <div class="password">
+                <div class="pw"><label for=""><b> Password :</b></label></div>
+                <div class="pw"><input type="password" id="txt_passWord" name="passWord" class="form-control"></div>
+            </div>
+
+            <div class="singin">
+
+                <div class="sing"></div>
+                <div class="sing" style="width: 70px;"><input type="submit" class="btn btn-success btn-sm" id="btn_login_submit" value="Sing in"></div>
+
+
+                <div class="sing" id="forgot" data-toggle="modal" data-target="#myModal"><label for="">Forgot password?</label></div>
+
+                <form action="login_form" method="post"></form>
+                <div class="sing" style="width: 50px;"><input type="button" class="btn btn-secondary btn-sm" id="btn_login_guest" value="Guest"></div>
+
+            </div>
+
+            <div class="end"></div>
+
+        </form>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <label for="" class="titel-modal">GET PASSWORD BY</label>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <label for=""><b> Send to the e-mail :</b></label>
+                    <input type="text">
+                    <button class=" butn btn-primary" id="btn_send_email">Send</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

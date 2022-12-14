@@ -32,6 +32,11 @@ urlpatterns = [
     path('Page_Login',views.Page_Login),
 
     # Smart scrap control
+        # Go to page > Login
+    path('go_html_login',views.go_html_login),
+    path('proj7_page1_login',views.proj7_page1_login),
+    path('proj7_page1_login_alert',views.proj7_page1_login_alert),
+
         # Go to page > Record weight
     path('go_html_record_weight',views.go_html_record_weight),
 
