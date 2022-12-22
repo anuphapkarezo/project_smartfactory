@@ -11,7 +11,7 @@ from .proj7_functions import save_waste_item_price_list , update_waste_item_pric
 from .proj7_functions import save_company_master_list , update_company_master_list
 from .proj7_functions import save_company_contact_name_list , update_company_contact_name_list
 from .proj7_functions import save_waste_item_map_factory , update_waste_item_map_factory
-from .proj7_functions import save_waste_daily_transaction
+from .proj7_functions import save_waste_daily_transaction , function_check_user_role_no
 
 import json
 from json import dumps
@@ -91,7 +91,16 @@ def go_html_database_management(request):
     return render(request,"proj7_scrap_control/proj7_page2_database_management.html")
 
 def go_html_record_weight_waste_scrap(request):
-    return  render(request,'proj7_scrap_control/proj7_page3_record_weight_waste_scrap.html')
+    user_login = request.session.get('user_login')
+    name_user = request.session.get('name_user')
+    factory_user = request.session.get('factotry_login')
+    print("Get session value : " , user_login , " " , name_user , " / " , factory_user)
+    function_value = function_check_user_role_no(user_login)
+    print(function_value)
+    if function_value == "role ok":
+        return  render(request,'proj7_scrap_control/proj7_page3_record_weight_waste_scrap.html')
+    else:
+        return  render(request,'proj7_scrap_control/proj7_page1_login.html')
 
 @csrf_exempt
 def proj7_read_database_product(request):
@@ -778,6 +787,15 @@ def proj7_page1_login(request):
             print(df_system_role)
             if len(df_system_role) > 0 :
                 print("Login OK")
+                name_user = df_user_login.loc[0 , 'proj1_usermaster_name_eng']
+                surname_user = df_user_login.loc[0 , 'proj1_usermaster_surname_eng']
+                factotry_user = df_user_login.loc[0 , 'proj1_usermaster_factory']
+                print(factotry_user , ' / ' , name_user , ' ' , surname_user)
+
+                request.session['user_login'] = user_login_df
+                request.session['name_user'] = name_user + ' ' + surname_user
+                request.session['factotry_login'] = factotry_user
+
                 return render(request,'proj7_scrap_control/proj7_page3_record_weight_waste_scrap.html')
             else:
                 print("Missing system role")

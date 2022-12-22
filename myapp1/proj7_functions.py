@@ -1,6 +1,8 @@
 from .models import Waste_item_master_list , Waste_group_master_list , Waste_item_price_list , Waste_item_map_factory , Waste_daily_transaction
 from .models import Company_master_list , Company_contact_name_list
 from datetime import datetime
+import requests
+import pandas as pd
 
 #Function save database > save_waste_item_master_list
 def save_waste_item_master_list(df_excel):
@@ -322,3 +324,17 @@ def save_waste_daily_transaction(date_take_off , factory_search , waste_item_cod
     db_save.update_date = datetimesave
     db_save.update_by = "Anupab.K"
     db_save.save()
+
+
+def function_check_user_role_no(user_login):
+    url_api = 'http://10.17.66.112:8080/smartplanning/system_permission/?username=' + str(user_login) + '&system_code=1'
+    api_req = requests.get(url_api,verify=False)
+    db_string = api_req.json()
+    df_system_role = pd.DataFrame(db_string)
+    df_check_user_role = df_system_role[(df_system_role['role_no']==3) | (df_system_role['role_no']==3)]
+    if len(df_check_user_role) > 0:
+        check_user_status = "role ok"
+    else:
+        check_user_status = "not pass"
+
+    return check_user_status
