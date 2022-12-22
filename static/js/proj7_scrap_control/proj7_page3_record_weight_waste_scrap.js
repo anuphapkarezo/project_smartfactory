@@ -1,6 +1,24 @@
+function load_factory() {
+    console.log("start function");
+    let before_select = '<select name="" id="opt_select_factory">'
+    let after_select = '</select>'
+    $.ajax({ // search process        
+        url: 'proj7_page3_record_weight_waste_scrap_load_factory',
+        type: 'post',
+        data: {
+
+        },
+        success: function(ajax_proj7_page3_record_weight_waste_scrap_load_factory) {
+            console.log(ajax_proj7_page3_record_weight_waste_scrap_load_factory);
+            let factory_login = '<option value="' + ajax_proj7_page3_record_weight_waste_scrap_load_factory + '" selected>' + ajax_proj7_page3_record_weight_waste_scrap_load_factory + '</option>'
+                // select_factory = before_select + factory_login + after_select
+            $('#opt_select_factory').html(factory_login);
+        }
+    })
+}
+
 $(document).ready(function() {
     $('#opt_select_factory').focus()
-
 
     $.ajax({
             url: 'proj7_page3_record_weight_waste_scrap', // เรียกใช้ URL
@@ -124,6 +142,10 @@ $(document).ready(function() {
                 'select_date_val': select_date_val
             },
             success: function(ajax_proj7_page3_record_weight_waste_scrap_search_item) {
+                if (ajax_proj7_page3_record_weight_waste_scrap_search_item == "Not found data") {
+                    $('.tbody_record_weight_waste_scrap').empty();
+                    return
+                }
                 let json_txt = JSON.parse(ajax_proj7_page3_record_weight_waste_scrap_search_item)
                 let row_no = 0
                 let row
@@ -727,3 +749,7 @@ $(document).ready(function() {
         }
     })
 })
+
+
+
+// opt_select_factory

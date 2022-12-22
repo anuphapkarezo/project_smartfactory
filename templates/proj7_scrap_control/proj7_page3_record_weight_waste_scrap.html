@@ -10,7 +10,7 @@
     <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
 </head>
 
-<body>
+<body onload="load_factory()">
     <!-- การ link ในส่วนของ Bootstrap => Js/css -->
     <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
@@ -32,9 +32,9 @@
 
             <label for="" id="lbl_factory">Factory :</label>
             <select name="" id="opt_select_factory">
-                <option value="A1">A1</option>
-                <option value="K1">K1</option>
-                <option value="P1">P1</option>
+                <!-- <option id="opt_factory" value="default">Select Factory</option> -->
+                <!-- <option value="K1">K1</option>
+                <option value="P1">P1</option> -->
             </select>
 
             <label for="" id="lbl_group">Group :</label>

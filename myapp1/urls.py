@@ -36,6 +36,9 @@ urlpatterns = [
     path('go_html_login',views.go_html_login),
     path('proj7_page1_login',views.proj7_page1_login),
     path('proj7_page1_login_alert',views.proj7_page1_login_alert),
+    path('proj7_page1_login_check_user',views.proj7_page1_login_check_user),
+    path('go_html_page_home',views.go_html_page_home),
+    path('go_html_page_contact_us',views.go_html_page_contact_us),
 
         # Go to page > Record weight
     path('go_html_record_weight',views.go_html_record_weight),
@@ -61,4 +64,5 @@ urlpatterns = [
     path('proj7_page3_save_waste_daily_transaction',views.proj7_page3_save_waste_daily_transaction),
     path('proj7_page3_search_waste_daily_transaction',views.proj7_page3_search_waste_daily_transaction),
     path('proj7_page3_clear_waste_daily_transaction',views.proj7_page3_clear_waste_daily_transaction),
+    path('proj7_page3_record_weight_waste_scrap_load_factory',views.proj7_page3_record_weight_waste_scrap_load_factory),
 ]

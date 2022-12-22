@@ -84,6 +84,12 @@ def Page_Login(request):
 def go_html_login(request):
     return render(request,'proj7_scrap_control/proj7_page1_login.html')
 
+def go_html_page_home(request):
+    return render(request,'proj7_scrap_control/proj7_page_home.html')
+
+def go_html_page_contact_us(request):
+    return render(request,'proj7_scrap_control/proj7_page_contact_us.html')
+
 def go_html_record_weight(request):
     return  render(request,'proj7_scrap_control/proj7_page1_record_weight.html')
 
@@ -94,13 +100,13 @@ def go_html_record_weight_waste_scrap(request):
     user_login = request.session.get('user_login')
     name_user = request.session.get('name_user')
     factory_user = request.session.get('factotry_login')
-    print("Get session value : " , user_login , " " , name_user , " / " , factory_user)
+    # print("Get session value : " , user_login , " " , name_user , " / " , factory_user)
     function_value = function_check_user_role_no(user_login)
     print(function_value)
     if function_value == "role ok":
         return  render(request,'proj7_scrap_control/proj7_page3_record_weight_waste_scrap.html')
     else:
-        return  render(request,'proj7_scrap_control/proj7_page1_login.html')
+        return  render(request,'proj7_scrap_control/proj7_page_home.html')
 
 @csrf_exempt
 def proj7_read_database_product(request):
@@ -454,14 +460,22 @@ def proj7_page3_record_weight_waste_scrap_search_item(request):
     # print(db_item_map_factory)
     # print(db_item_master)
     # print(df_merge_data_map)
+    # db_item_master_check = Waste_item_master_list.objects.filter(waste_group_code=group_search_post).exists()
+    # print(db_item_master_check)
 
     db_item_master = pd.DataFrame(list(Waste_item_master_list.objects.filter(waste_group_code=group_search_post).values()))
+    if len(db_item_master) == 0:
+        ajax_proj7_page3_record_weight_waste_scrap_search_item = "Not found data"
+        return HttpResponse(ajax_proj7_page3_record_weight_waste_scrap_search_item)
+
     db_item_group = pd.DataFrame(list(Waste_group_master_list.objects.all().values()))
     df_merge_data = pd.merge(db_item_master,db_item_group,how="inner",on=["waste_group_code"])
-    # print(df_merge_data)
-
+    # print("Merge data" , df_merge_data)      
     # print('/////////////////////////////////////////')
     db_item_map_factory = pd.DataFrame(list(Waste_item_map_factory.objects.filter(factory_name=factory_search_post).values()))
+    if len(db_item_map_factory) == 0:
+        ajax_proj7_page3_record_weight_waste_scrap_search_item = "Not found data"
+        return HttpResponse(ajax_proj7_page3_record_weight_waste_scrap_search_item)
     # print(db_item_map_factory)
     # print('/////////////////////////////////////////')
     df_merge_data_map = pd.merge(df_merge_data,db_item_map_factory,how="inner",on=["waste_item_code"])
@@ -477,6 +491,8 @@ def proj7_page3_record_weight_waste_scrap_search_item(request):
         df_merge_data_map.fillna(0,inplace=True)
     else:
         df_merge_data_map['weight'] = 0
+        # ajax_proj7_page3_record_weight_waste_scrap_search_item = "Not found data"
+        # return HttpResponse(ajax_proj7_page3_record_weight_waste_scrap_search_item)
 
     json_records = df_merge_data_map.reset_index().to_json(orient='records')
     data_loads = json.loads(json_records)
@@ -790,13 +806,16 @@ def proj7_page1_login(request):
                 name_user = df_user_login.loc[0 , 'proj1_usermaster_name_eng']
                 surname_user = df_user_login.loc[0 , 'proj1_usermaster_surname_eng']
                 factotry_user = df_user_login.loc[0 , 'proj1_usermaster_factory']
+                full_name = name_user + " " + surname_user
                 print(factotry_user , ' / ' , name_user , ' ' , surname_user)
 
                 request.session['user_login'] = user_login_df
                 request.session['name_user'] = name_user + ' ' + surname_user
                 request.session['factotry_login'] = factotry_user
 
-                return render(request,'proj7_scrap_control/proj7_page3_record_weight_waste_scrap.html')
+                return render(request,'proj7_scrap_control/proj7_page_home.html')
+                # return render(request,'proj7_scrap_control/proj7_page_home.html' , {'fullname_login':full_name , 'factory_logn':factotry_user})
+
             else:
                 print("Missing system role")
                 return render(request,'proj7_scrap_control/proj7_page1_login.html')
@@ -807,5 +826,37 @@ def proj7_page1_login(request):
     else:
         print("Not found user")
         return render(request,'proj7_scrap_control/proj7_page1_login.html')
+
+@csrf_exempt
+def proj7_page1_login_check_user(request):
+    user_login = request.session.get('user_login')
+
+    url_api = 'http://10.17.66.112:8080/smartplanning/user_login/?username=' + user_login
+    api_req = requests.get(url_api,verify=False)
+    db_string = api_req.json()
+    df_user_login = pd.DataFrame(db_string)
+            
+    name_user = df_user_login.loc[0 , 'proj1_usermaster_name_eng']
+    surname_user = df_user_login.loc[0 , 'proj1_usermaster_surname_eng']
+    fullname_user = name_user + " " + surname_user
+
+    ajax_proj7_page1_login_check_user = fullname_user
+    return HttpResponse(ajax_proj7_page1_login_check_user)
+
+@csrf_exempt
+def proj7_page3_record_weight_waste_scrap_load_factory(request):
+    user_login = request.session.get('user_login')
+
+    url_api = 'http://10.17.66.112:8080/smartplanning/user_login/?username=' + user_login
+    api_req = requests.get(url_api,verify=False)
+    db_string = api_req.json()
+    df_user_login = pd.DataFrame(db_string)
+
+    factotry_user = df_user_login.loc[0 , 'proj1_usermaster_factory']
+    ajax_proj7_page3_record_weight_waste_scrap_load_factory = factotry_user
+    print(ajax_proj7_page3_record_weight_waste_scrap_load_factory)
+    return HttpResponse(ajax_proj7_page3_record_weight_waste_scrap_load_factory)
+
+           
 
 

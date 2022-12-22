@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUJIKURA</title>
+    {% load static %}
+
+    <!-- <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script> -->
+    <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
+
+</head>
+
+<body onload="load_user()">
+
+    <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
+
+    <script type="text/javascript" src="{% static 'js/proj7_scrap_control/proj7_page_home.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/proj7_scrap_control/proj7_page_home.css' %}">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" style="color: DodgerBlue; font-weight: bold;">Fujikura</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- <div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                </ul>
+            </div> -->
+            <div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active" style="color: white;">
+                        <div class="form-inline my-2 my-lg-0" id="userName">
+                            <div class="form-inline my-2 my-lg-0" id="userName"> Welcome , <span class="" id="user_name" style="color: white;">Full name</span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div style="background-color:gray;width: 60px;text-align: center;margin-left: 10px;border-radius: 5px;">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="/go_html_page_home" st="">Home</a></li>
+                </ul>
+            </div>
+
+            <div style="background-color:gray;width: 70px;text-align: center;margin-left: 10px;border-radius: 5px;">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="/go_html_login" st="">Logout</a></li>
+                </ul>
+            </div>
+
+            <div style="background-color:gray;width: 95px;text-align: center;margin-left: 10px;border-radius: 5px;">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="/go_html_page_contact_us" st="">Contact us</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <ul class="navbar-nav mr-auto ">
+                    <!-- <li class="nav-item active "><a class="nav-link " href=" " st><font style="color: DodgerBlue;font-weight: bold; ">SMART PLANNING APP.</font></a></li> -->
+                </ul>
+            </div>
+    </nav>
+
+    <div class="main_box_container">
+        <div id="" style="font-size:xx-large;font-weight: bold;text-align: center;background-color:lightskyblue;">Smart Scrap Management</div>
+    </div>
+
+    <div class="main_box_container">
+
+        <div class="menu_web_app">
+            <div class="title_master">WEB APPLICATION LIST</div>
+            <div class="body_master">
+
+                <div class="menu_box">
+                    <a href="/go_html_record_weight_waste_scrap"><img class="btn" id="Key_weight" style="width:170px;height: auto;" src="/static/img/pro7_smart_scrap/Key weight.jpg"></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

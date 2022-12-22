@@ -331,7 +331,7 @@ def function_check_user_role_no(user_login):
     api_req = requests.get(url_api,verify=False)
     db_string = api_req.json()
     df_system_role = pd.DataFrame(db_string)
-    df_check_user_role = df_system_role[(df_system_role['role_no']==3) | (df_system_role['role_no']==3)]
+    df_check_user_role = df_system_role[(df_system_role['role_no']==1) | (df_system_role['role_no']==3)]
     if len(df_check_user_role) > 0:
         check_user_status = "role ok"
     else:
