@@ -10,7 +10,7 @@
     <script src="{% static 'js/Bootstrap/jquery-3.6.0.js' %}"></script>
 </head>
 
-<body onload="load_factory()">
+<body onload="load_factory(); load_user()">
     <!-- การ link ในส่วนของ Bootstrap => Js/css -->
     <script type="text/javascript" src="{% static 'js/Bootstrap/bootstrap.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/Bootstrap/bootstrap.min.css' %}">
@@ -44,6 +44,7 @@
 
             <input type="button" class="btn btn-sm btn-info" id="btn_search_item" value="Search item">
             <input type="button" class="btn btn-sm btn-success" id="btn_export_excel" value="Export Data">
+            <label for="" id="lbl_load_user"></label>
 
             <!-- <input type="button" class="btn btn-sm btn-info" id="btn_test_modal" value="Test Modal" data-toggle="modal" data-target="#modal_key_weight"> -->
         </div>

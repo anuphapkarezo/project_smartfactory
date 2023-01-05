@@ -17,6 +17,21 @@ function load_factory() {
     })
 }
 
+function load_user() {
+    console.log("start function user");
+    $.ajax({ // search process        
+        url: 'proj7_page1_login_check_user',
+        type: 'post',
+        data: {
+
+        },
+        success: function(ajax_proj7_page1_login_check_user) {
+            console.log(ajax_proj7_page1_login_check_user);
+            $('#lbl_load_user').text(ajax_proj7_page1_login_check_user)
+        }
+    })
+}
+
 $(document).ready(function() {
     $('#opt_select_factory').focus()
 
@@ -133,6 +148,9 @@ $(document).ready(function() {
             return;
         }
 
+        var user_login = $('#lbl_load_user').text()
+
+
         $.ajax({
             url: 'proj7_page3_record_weight_waste_scrap_search_item', // เรียกใช้ URL
             type: 'post', // ประเภทของการส่งข้อมูล
@@ -160,7 +178,8 @@ $(document).ready(function() {
                         '<td class="set_textbox_td"><label class="label_export label_total" for="" id="label_total_' + input_factory + '_' + value_db.waste_item_code + '">' + value_db.weight + '</label></td>' +
                         // '<td class="set_textbox_td"><input type="text" class="disabled_txt txt_detail" id="txt_detail_' + input_factory + '_' + value_db.waste_item_code + '" value="' + value_db.weight + '"> <label class="label_export label_detail" for="" id="label_detail_' + input_factory + '_' + value_db.waste_item_code + '">' + value_db.weight + '</label></td>' +
                         '<td class="set_textbox_td"><label class="label_export label_detail" for="" id="label_detail_' + input_factory + '_' + value_db.waste_item_code + '">' + value_db.weight + '</label></td>' +
-                        '<td class="set_margin_td to_modal_update_by">Anupab.K</td>' +
+                        // '<td class="set_margin_td to_modal_update_by">Anupab.K</td>' +
+                        '<td class="set_margin_td to_modal_update_by">' + user_login + '</td>' +
                         '<td class="set_margin_td to_modal_update_date">' + today_date + '</td>' +
                         '<td class="set_margin_td"><input type="button" class="btn btn-sm btn-warning btn_add" id="btn_add" value="Key Weight" data-toggle="modal" data-target="#modal_key_weight"> <input type="button" class="btn btn-sm btn-danger btn_clear" id="btn_clear" value="Clear weight"> </td>' +
                         '</tr>'

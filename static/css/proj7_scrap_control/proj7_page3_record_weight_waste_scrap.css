@@ -379,6 +379,7 @@ th {
 
 #model_lbl_group_code,
 #modal_label_total,
-#modal_label_detail {
+#modal_label_detail,
+#lbl_load_user {
     display: none;
 }
